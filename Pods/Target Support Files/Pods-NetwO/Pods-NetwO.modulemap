@@ -1,0 +1,6 @@
+framework module Pods_NetwO {
+  umbrella header "Pods-NetwO-umbrella.h"
+
+  export *
+  module * { export * }
+}

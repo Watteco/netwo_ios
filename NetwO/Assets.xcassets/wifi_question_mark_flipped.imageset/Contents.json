@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "wifi_question_mark_flipped.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

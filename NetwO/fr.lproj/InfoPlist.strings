@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  NetwO
+
+  Created by Alain Grange on 17/07/2021.
+  
+*/
+
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Pour envoyer la position du testeur lors des exports";
+"NSLocationAlwaysUsageDescription" = "Pour envoyer la position du testeur lors des exports";
+"NSLocationUsageDescription" = "Pour envoyer la position du testeur lors des exports";
+"NSLocationWhenInUseUsageDescription" = "Pour envoyer la position du testeur lors des exports";

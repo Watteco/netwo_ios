@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  NetwO
+
+  Created by Alain Grange on 07/05/2021.
+  
+*/
+
+"about" = "About";
+"aboutText" = "This app has been developed by Alain Grange for Watteco. All right reserved V{{0}}";
+"app_name" = "Netw'O";
+"apply" = "Apply changes";
+"average" = "Average";
+"averageGateway" = "Average number of gateways: ";
+"bad" = "Bad";
+"chartNoData" = "No chart data available";
+"clear" = "You cleared the data";
+"configuration" = "Configuration";
+"debug_mode" = "Debug mode";
+"descriptionDelay" = "Delay in second";
+"descriptionGateway" = "It is the number of gateway you are communicating with.";
+"descriptionMargin" = "Margin in dB between the received signal level and the minimum reception level.";
+"descriptionRSSI" = "The Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm.";
+"descriptionRX" = "Reception window";
+"descriptionSF" = "Spreading Factor (SF) : defines the number of bits that can be encoded by a symbol.";
+"descriptionSNR" = "Signal-to-Noise Ratio (SNR) is the ratio between the received power signal and the noise floor power level.";
+"device_not_connected" = "Device is not connected";
+"devices" = "Bluetooth LE Devices";
+"emission" = "Emission:";
+"envoi" = "Send report";
+"error" = "Error";
+"errorThrehsold" = "You have to select correct threshold";
+"excellent" = "Excellent";
+"gateway" = "gateway";
+"gateways" = "gateways";
+"good" = "Good";
+"numberOfFrame" = "Number of frame";
+"menu" = "Menu";
+"ok" = "OK";
+"onlineSupport" = "Online support";
+"percentage" = "% of the data.";
+"perfect" = "Perfect";
+"please_try_again_later" = "Please try again later";
+"privacy_location" = "To send tester's location for exports";
+"receive" = "Start test radio";
+"received" = "You received";
+"reception" = "Reception:";
+"reportchoose" = "Select the format of your report:";
+"reportcsv" = "CSV";
+"reportjson" = "Json";
+"reset" = "Reset values";
+"scan" = "Scan";
+"scanBle" = "Scan BLE";
+"scanNoResult" = "<no bluetooth devices found>";
+"scanning" = "<scanning...>";
+"send" = "Send";
+"thereIs" = "There is";
+"thereAre" = "There are";
+"thresholdMargin" = "Margin threshold:";
+"thresholdRSSI" = "RSSI threshold:";
+"thresholdSNR" = "SNR threshold :";
+"useScan" = "<use SCAN to refresh devices>";
+"wrongNbrTrame" = "You have to select a number of frame between 1 and 100";
+

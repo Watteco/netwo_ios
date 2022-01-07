@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "wifi_good_light_green.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

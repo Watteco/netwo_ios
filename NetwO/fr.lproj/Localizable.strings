@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  NetwO
+
+  Created by Alain Grange on 07/05/2021.
+  
+*/
+
+"about" = "À propos";
+"aboutText" = "Cette application a été développée par Alain Grange pour Watteco. Tous droits réservés V{{0}}";
+"app_name" = "Netw'O";
+"apply" = "Appliquer les modifications";
+"average" = "Moyenne";
+"averageGateway" = "Nombre moyen de passerelles : ";
+"bad" = "Mauvais";
+"chartNoData" = "Aucune donnée disponible";
+"clear" = "Vous avez effacé les données";
+"configuration" = "Configuration";
+"debug_mode" = "Mode debug";
+"descriptionDelay" = "Délai en seconde";
+"descriptionGateway" = "Il s'agit du nombre de passerelle avec laquelle le produit communique.";
+"descriptionMargin" = "Marge en dB entre le niveau de signal recu et le niveau de reception minimum.";
+"descriptionRSSI" = "La RSSI est la puissance du signal reçu en dBm.";
+"descriptionRX" = "Fenêtre de réception";
+"descriptionSF" = "Spreading Factor (SF): Débit d'émision varie de SF7 à SF12.";
+"descriptionSNR" = "Le SNR est le rapport entre le signal de puissance reçu et le niveau de puissance du bruit.";
+"device_not_connected" = "Périphérique non connecté";
+"devices" = "Appareil Bluetooth LE";
+"emission" = "Émission :";
+"envoi" = "Envoyer le rapport";
+"error" = "Erreur";
+"errorThrehsold" = "Vous devez sélectionner un seuil adéquat";
+"excellent" = "Excellent";
+"gateway" = "passerelle";
+"gateways" = "passerelles";
+"good" = "Correct";
+"numberOfFrame" = "Nb de trames";
+"menu" = "Menu";
+"ok" = "OK";
+"onlineSupport" = "Support en ligne";
+"percentage" = "% des données.";
+"perfect" = "Parfait";
+"please_try_again_later" = "Veuillez réessayer ultérieurement";
+"privacy_location" = "Pour envoyer la position du testeur lors des exports";
+"receive" = "Test radio";
+"received" = "Vous avez reçu";
+"reception" = "Réception :";
+"reportchoose" = "Sélectionnez le format de votre rapport :";
+"reportcsv" = "CSV";
+"reportjson" = "Json";
+"reset" = "Réinitialiser les valeurs";
+"scan" = "Scan";
+"scanBle" = "Scan BLE";
+"scanNoResult" = "<aucun périphérique bluetooth détecté>";
+"scanning" = "<scan en cours...>";
+"send" = "Envoyer";
+"thereIs" = "Il y a";
+"thereAre" = "Il y a";
+"thresholdMargin" = "Seuil Margin :";
+"thresholdRSSI" = "Seuil RSSI :";
+"thresholdSNR" = "Seuil SNR :";
+"useScan" = "<appuyer sur SCAN pour rechercher les appareils>";
+"wrongNbrTrame" = "Vous devez sélectionner un nombre de trame compris entre 1 et 100";
+
