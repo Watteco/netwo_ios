@@ -61,4 +61,5 @@
 "thresholdSNR" = "SNR threshold :";
 "useScan" = "<use SCAN to refresh devices>";
 "wrongNbrTrame" = "You have to select a number of frame between 1 and 100";
-
+"exportFilename" = "File name";
+"deveui_save_in_progress" = "Save in progress";

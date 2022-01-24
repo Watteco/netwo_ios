@@ -366,14 +366,55 @@ class ConfigurationViewController: UIViewController {
     
     func reloadDatas() {
                 
-        marginPerfectTextField.text = "\(marginPerfect)"
-        marginGoodTextField.text = "\(marginGood)"
-        marginBadTextField.text = "\(marginBad)"
-        rssiPerfectTextField.text = "\(rssiPerfect)"
-        rssiBadTextField.text = "\(rssiBad)"
-        snrPerfectTextField.text = "\(snrPerfect)"
-        snrBadTextField.text = "\(snrBad)"
+        let defaults = UserDefaults.standard
+        let marginPerfectSaved = defaults.integer(forKey: DefaultsKeys.marginPerfect)
+        if (marginPerfectSaved > 0) {
+            marginPerfectTextField.text = "\(marginPerfectSaved)"
+        }else {
+            marginPerfectTextField.text = "\(marginPerfect)"
+        }
         
+        let marginGoodSaved = defaults.integer(forKey: DefaultsKeys.marginGood)
+        if (marginGoodSaved > 0) {
+            marginGoodTextField.text = "\(marginGoodSaved)"
+        }else {
+            marginGoodTextField.text = "\(marginGood)"
+        }
+        
+        let marginBadSaved = defaults.integer(forKey: DefaultsKeys.marginBad)
+        if (marginBadSaved > 0) {
+            marginBadTextField.text = "\(marginBadSaved)"
+        }else {
+            marginBadTextField.text = "\(marginBad)"
+        }
+        
+        let rssiPerfectSaved = defaults.integer(forKey: DefaultsKeys.rssiPerfect)
+        if (rssiPerfectSaved > 0) {
+            rssiPerfectTextField.text = "\(rssiPerfectSaved)"
+        }else {
+            rssiPerfectTextField.text = "\(rssiPerfect)"
+        }
+        
+        let rssiBadSaved = defaults.integer(forKey: DefaultsKeys.rssiBad)
+        if (rssiBadSaved > 0) {
+            rssiBadTextField.text = "\(rssiBadSaved)"
+        }else {
+            rssiBadTextField.text = "\(rssiBad)"
+        }
+        
+        let snrPerfectSaved = defaults.integer(forKey: DefaultsKeys.snrPerfect)
+        if (snrPerfectSaved > 0) {
+            snrPerfectTextField.text = "\(snrPerfectSaved)"
+        }else {
+            snrPerfectTextField.text = "\(snrPerfect)"
+        }
+        
+        let snrBadSaved = defaults.integer(forKey: DefaultsKeys.snrBad)
+        if (snrBadSaved > 0) {
+            snrBadTextField.text = "\(snrBadSaved)"
+        }else {
+            snrBadTextField.text = "\(snrBad)"
+        }
     }
     
     // MARK: - Actions
@@ -427,6 +468,16 @@ class ConfigurationViewController: UIViewController {
             list.append(snrPerfect)
             list.append(snrBad)
             
+            let defaults = UserDefaults.standard
+            defaults.set(marginPerfect, forKey: DefaultsKeys.marginPerfect)
+            defaults.set(marginGood, forKey: DefaultsKeys.marginGood)
+            defaults.set(marginBad, forKey: DefaultsKeys.marginBad)
+            defaults.set(rssiPerfect, forKey: DefaultsKeys.rssiPerfect)
+            defaults.set(rssiBad, forKey: DefaultsKeys.rssiBad)
+            defaults.set(snrPerfect, forKey: DefaultsKeys.snrPerfect)
+            defaults.set(snrBad, forKey: DefaultsKeys.snrBad)
+            defaults.synchronize()
+            
             self.delegate?.applyConfiguration?(configurationViewController: self, list: list)
             
             dismissAction()
@@ -446,7 +497,6 @@ class ConfigurationViewController: UIViewController {
         rssiBadTextField.text = "\(resetRSSIBad)"
         snrPerfectTextField.text = "\(resetSNRPerfect)"
         snrBadTextField.text = "\(resetSNRBad)"
-        
     }
     
     // MARK: - Keyboard Management

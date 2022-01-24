@@ -53,6 +53,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     var allOperator = [Int]()
     var allBatteryVoltage = [Float]()
     var allOperatorName = [Int: String]()
+    var appeui = String()
+    var deveui = String()
     
     var datasCount = 0
     
@@ -177,13 +179,13 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         initReceptionView(receptionView: receptionView)
         
         // graph tx view
-        self.graphTxView = GraphTxView(frame: CGRect(x: 0.0, y: navigationBarHeight + 26.0, width: self.view.frame.size.width, height: self.view.frame.size.height - navigationBarHeight - 26.0))
+        self.graphTxView = GraphTxView(frame: CGRect(x: 0.0, y: navigationBarHeight, width: self.view.frame.size.width, height: self.view.frame.size.height - navigationBarHeight))
         graphTxView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         graphTxView.isHidden = true
         self.view.addSubview(graphTxView)
         
         // graph rx view
-        self.graphRxView = GraphRxView(frame: CGRect(x: 0.0, y: navigationBarHeight + 26.0, width: self.view.frame.size.width, height: self.view.frame.size.height - navigationBarHeight - 26.0))
+        self.graphRxView = GraphRxView(frame: CGRect(x: 0.0, y: navigationBarHeight, width: self.view.frame.size.width, height: self.view.frame.size.height - navigationBarHeight))
         graphRxView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         graphRxView.isHidden = true
         self.view.addSubview(graphRxView)
@@ -428,8 +430,13 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                                         
                     break
                     
+                }else if line.contains("APPEUI") {
+                    let appeuiIndex = line.index(line.startIndex, offsetBy: 7)
+                    appeui = String(line.suffix(from: appeuiIndex))
+                }else if line.contains("DEVEUI") {
+                    let deveuiIndex = line.index(line.startIndex, offsetBy: 7)
+                    deveui = String(line.suffix(from: deveuiIndex))
                 }
-
             }
 
         } else if lines.count >= 11 && value != "\n" && !lines[1].contains("RESULT") {
@@ -659,6 +666,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         
         let sendViewController = SendViewController()
         sendViewController.delegate = self
+        sendViewController.deveui = deveui
         sendViewController.modalPresentationStyle = .overCurrentContext
         present(sendViewController, animated: false, completion: nil)
         
@@ -772,7 +780,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         
     }
     
-    func exportDatasAction(type: String) {
+    func exportDatasAction(type: String, filename: String) {
         
         // show loader
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -807,10 +815,9 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                         in: .userDomainMask
                     ).first
 
-                    let dateString = Formatters.stringFromDate(from: Date(), template: FormattersTemplate.ddMMyyyyHHmmss)!
-                    let fileName = "report_\(self.device?.name ?? "device")_\(dateString).\(type)"
+                    let finalFileName = "\(filename).\(type)"
                        
-                    guard let path = documents?.appendingPathComponent("/\(fileName)") else {
+                    guard let path = documents?.appendingPathComponent("/\(finalFileName)") else {
                        
                        let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("please_try_again_later", comment: ""), preferredStyle: .alert)
                        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: {
@@ -866,47 +873,53 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     
     func delete(navigationBar: NavigationBar) {
         
-        let clearString = "~\(NSLocalizedString("clear", comment: ""))~\n"
-        let mutableAttributedString = NSMutableAttributedString.init(string: clearString)
-        mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, clearString.count))
-        debugView.setValue(attributedString: mutableAttributedString)
+        let confirmAlert = UIAlertController(title: "Suppression", message: "Confirmez-vous la réinitialisation ?", preferredStyle: .alert)
+        confirmAlert.addAction(UIAlertAction(title: "Supprimer", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+            
+            let clearString = "~\(NSLocalizedString("clear", comment: ""))~\n"
+            let mutableAttributedString = NSMutableAttributedString.init(string: clearString)
+            mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSMakeRange(0, clearString.count))
+            self.debugView.setValue(attributedString: mutableAttributedString)
 
-        receptionRSSILabel.text = "RSSI"
-        emissionMarginLabel.text = "Margin"
-        receptionSNRLabel.text = "SNR"
-        emissionLabel.text = "SF :"
-        receptionLabel.text = ""
-        gatewayLabel.text = ""
-        operatorLabel.text = ""
-        tramesLabel.text = ""
-        
-        receptionCheckImageView.image = UIImage(named: "wifi_question_mark_flipped")
-        receptionCheckImageView.transform = .init(rotationAngle: 0)
-        emissionCheckImageView.image = UIImage(named: "wifi_question_mark")
-        batteryLabel.text = ""
-        batteryImageView.image = UIImage(named: "battery_missing")
-        
-        datas.removeAll()
-        reportDatas.removeAll()
-        allCurrentNumber.removeAll()
-        allTX.removeAll()
-        allGateway.removeAll()
-        allMargin.removeAll()
-        allSNR.removeAll()
-        allRSSI.removeAll()
-        allSFTX.removeAll()
-        allSFRX.removeAll()
-        allWindows.removeAll()
-        allDelay.removeAll()
-        allOperator.removeAll()
-        allBatteryVoltage.removeAll()
-        
-        datasCount = 0
-        
-        graphTxView.setPercentage(percentage: 0.0)
-        graphRxView.setPercentage(percentage: 0.0)
-        updateGraphs()
-        
+            self.receptionRSSILabel.text = "RSSI"
+            self.emissionMarginLabel.text = "Margin"
+            self.receptionSNRLabel.text = "SNR"
+            self.emissionLabel.text = "SF :"
+            self.receptionLabel.text = ""
+            self.gatewayLabel.text = ""
+            self.operatorLabel.text = ""
+            self.tramesLabel.text = ""
+            
+            self.receptionCheckImageView.image = UIImage(named: "wifi_question_mark_flipped")
+            self.receptionCheckImageView.transform = .init(rotationAngle: 0)
+            self.emissionCheckImageView.image = UIImage(named: "wifi_question_mark")
+            self.batteryLabel.text = ""
+            self.batteryImageView.image = UIImage(named: "battery_missing")
+            
+            self.datas.removeAll()
+            self.reportDatas.removeAll()
+            self.allCurrentNumber.removeAll()
+            self.allTX.removeAll()
+            self.allGateway.removeAll()
+            self.allMargin.removeAll()
+            self.allSNR.removeAll()
+            self.allRSSI.removeAll()
+            self.allSFTX.removeAll()
+            self.allSFRX.removeAll()
+            self.allWindows.removeAll()
+            self.allDelay.removeAll()
+            self.allOperator.removeAll()
+            self.allBatteryVoltage.removeAll()
+            
+            self.datasCount = 0
+            
+            self.graphTxView.setPercentage(percentage: 0.0)
+            self.graphRxView.setPercentage(percentage: 0.0)
+            self.updateGraphs()
+            
+        }))
+        confirmAlert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(confirmAlert, animated: true, completion: nil)
     }
     
     func simple(navigationBar: NavigationBar) {
@@ -963,6 +976,15 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                 
     }
     
+    @objc func updateDeveuiIndex(sendViewController: SendViewController, index: String) {
+    
+        if !NetwOBLE.shared.isConnected() {
+            Utils.showAlert(view: self.view, message: NSLocalizedString("device_not_connected", comment: ""))
+            return
+        }
+        NetwOBLE.shared.updateDeveuiIndex(index: "\(index)")
+    }
+    
     // MARK: - MenuViewController Delegate
     
     func menuSelectItem(sendViewController: MenuViewController, action: String) {
@@ -1008,6 +1030,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
             
             let reportViewController = ReportViewController()
             reportViewController.delegate = self
+            let dateString = Formatters.stringFromDate(from: Date(), template: FormattersTemplate.ddMMyyyyHHmmss)!
+            reportViewController.filename = "report_\(self.device?.name ?? "device")_\(dateString)"
             reportViewController.modalPresentationStyle = .overCurrentContext
             present(reportViewController, animated: false, completion: nil)
             
@@ -1049,8 +1073,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     
     // MARK: - ReportViewController Delegate
     
-    func selectReport(reportViewController: ReportViewController, action: String) {
-        exportDatasAction(type: action)
+    func selectReport(reportViewController: ReportViewController, action: String, filename: String) {
+        exportDatasAction(type: action, filename: filename)
     }
     
     // MARK: - BLE Notifications
@@ -1097,5 +1121,4 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     @objc func deviceDisconnected(notification: NSNotification) {
         status(value: "connection lost")
     }
-    
 }

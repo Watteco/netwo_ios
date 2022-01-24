@@ -15,7 +15,7 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     let scanLabel = UILabel()
     let resultsTitleLabel = UILabel()
     var resultsTableView = UITableView()
-    
+    var refreshControl = UIRefreshControl()
     var peripherals = [CBPeripheral]()
     
     override func viewDidLoad() {
@@ -56,26 +56,27 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         resultsTitleLabel.isHidden = true
         self.view.addSubview(resultsTitleLabel)
         
+        // Pull to refresh
+        /*
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        refreshControl.tintColor = UIColor(red:1, green:1, blue:1, alpha:1.0)
+        */
         // results tableview
         resultsTableView = UITableView(frame: CGRect(x: 0.0, y: navigationBarHeight + 40.0, width: self.view.frame.size.width, height: self.view.frame.size.height - navigationBarHeight - 40.0), style: .plain)
         resultsTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        resultsTableView.isHidden = true
+        //resultsTableView.isHidden = false
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
         resultsTableView.backgroundColor = .clear
         resultsTableView.separatorStyle = .singleLine
         resultsTableView.separatorColor = ColorTextGreyLight50
+        //resultsTableView.refreshControl = refreshControl
         self.view.addSubview(resultsTableView)
         
         resultsTableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        // notifications
-        NotificationCenter.default.addObserver(self, selector: #selector(bluetoothState), name: .BLEBluetoothState, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(scanFinished), name: .BLEScanFinished, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(scanResults), name: .BLEScanResults, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceConnected), name: .BLEDeviceConnected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceFailedToConnect), name: .BLEDeviceFailedToConnect, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceDisconnected), name: .BLEDeviceDisconnected, object: nil)
+        
         
     }
 
@@ -93,29 +94,56 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(bluetoothState), name: .BLEBluetoothState, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(scanFinished), name: .BLEScanFinished, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(scanResults), name: .BLEScanResults, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceConnected), name: .BLEDeviceConnected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceFailedToConnect), name: .BLEDeviceFailedToConnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDisconnected), name: .BLEDeviceDisconnected, object: nil)
+        
         // scan button
         navigationBar?.loadHomeLayout()
         navigationBar?.setScanButtonEnabled(enabled: NetwOBLE.shared.isBluetoothEnabled())
         
         NetwOBLE.shared.disconnect()
-        
     }
     
-    // MARK: - NavigationBar Delegate
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        NotificationCenter.default.removeObserver(self, name: .BLEBluetoothState, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEScanFinished, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEScanResults, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEDeviceConnected, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEDeviceFailedToConnect, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEDeviceDisconnected, object: nil)
+    }
     
-    func scan(navigationBar: NavigationBar) {
+    // MARK: - Private
+    private func reloadData() {
         
         NetwOBLE.shared.disconnect()
         
         // scan
         NetwOBLE.shared.scan()
 
-        navigationBar.setScanButtonEnabled(enabled: false)
+        navigationBar?.setScanButtonEnabled(enabled: false)
         scanLabel.isHidden = false
         scanLabel.text = NSLocalizedString("scanning", comment: "")
         resultsTitleLabel.isHidden = true
-        resultsTableView.isHidden = true
-        
+        //resultsTableView.isHidden = true
+    }
+    
+    // MARK: - NavigationBar Delegate
+    
+    func scan(navigationBar: NavigationBar) {
+        /* Pull to refresh
+        let offsetPoint = CGPoint.init(x: 0, y: resultsTableView.contentOffset.y - (refreshControl.frame.size.height))
+        resultsTableView.setContentOffset(offsetPoint, animated: false)
+        refreshControl.beginRefreshing()
+        refreshControl.sendActions(for: .valueChanged)
+         */
+        self.reloadData()
     }
     
     func menu(navigationBar: NavigationBar) {
@@ -154,6 +182,9 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     }
     
     // MARK: - UITableView DataSource and Delegate
+    @objc func refreshAction() {
+        self.reloadData()
+    }
         
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -232,6 +263,7 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         
     @objc func scanFinished() {
         navigationBar?.setScanButtonEnabled(enabled: NetwOBLE.shared.isBluetoothEnabled())
+        self.refreshControl.endRefreshing()
     }
     
     @objc func scanResults(notification: NSNotification) {
@@ -246,7 +278,7 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
                 
                 scanLabel.isHidden = true
                 resultsTitleLabel.isHidden = false
-                resultsTableView.isHidden = false
+                //resultsTableView.isHidden = false
                 
                 self.peripherals.removeAll()
                 for peripheral in scanPeripherals.keys {
@@ -286,6 +318,7 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     @objc func deviceDisconnected(notification: NSNotification) {
         
         // hide loader
+        print("IDI")
         MBProgressHUD.hide(for: self.view, animated: true)
         
     }

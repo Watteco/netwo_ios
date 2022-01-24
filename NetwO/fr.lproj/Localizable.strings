@@ -61,4 +61,5 @@
 "thresholdSNR" = "Seuil SNR :";
 "useScan" = "<appuyer sur SCAN pour rechercher les appareils>";
 "wrongNbrTrame" = "Vous devez sélectionner un nombre de trame compris entre 1 et 100";
-
+"exportFilename" = "Nom du fichier";
+"deveui_save_in_progress" = "Enregistrement en cours";
