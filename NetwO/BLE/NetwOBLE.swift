@@ -19,6 +19,9 @@ class NetwOBLE: NSObject, BluetoothLibraryDelegate {
     static let shared = NetwOBLE()
     
     var mainCharacteristic: CBCharacteristic? = nil
+    var writeType = "test"
+    var lastConnectedDeviceName = ""
+    var reconnectLast = false
     
     required override init() {
         super.init()
@@ -58,6 +61,7 @@ class NetwOBLE: NSObject, BluetoothLibraryDelegate {
     }
     
     func connectPeripheral(peripheral: CBPeripheral) {
+        lastConnectedDeviceName = peripheral.name ?? ""
         BluetoothLibrary.shared.connectPeripheral(peripheral: peripheral)
     }
     
@@ -99,6 +103,11 @@ class NetwOBLE: NSObject, BluetoothLibraryDelegate {
         
     }
     
+    func reconnectLastDevice() {
+        reconnectLast = true
+        scan()
+    }
+    
     func disconnect() {
         BluetoothLibrary.shared.disconnectPeripheral()
     }
@@ -108,15 +117,41 @@ class NetwOBLE: NSObject, BluetoothLibraryDelegate {
         if let mainCharacteristic = mainCharacteristic,
            let data = value.data(using: .utf8) {
             print("TODO: startTest")
+            writeType = "test"
             BluetoothLibrary.shared.writeValue(characteristic: mainCharacteristic, value: data)
-            
         }
                 
+    }
+    
+    func updateDeveuiIndex(index: String) {
+        let newValue = String("MDEVEUI\(index)\r\n")
+        print("newValue");
+        print(newValue);
+        if let mainCharacteristic = mainCharacteristic,
+           let data = newValue.data(using: .utf8) {
+            writeType = "deveui"
+            BluetoothLibrary.shared.writeValue(characteristic: mainCharacteristic, value: data)
+        }
     }
     
     // MARK: - BluetoothLibrary Delegate
     
     func scanResults(_ scanPeripherals: [CBPeripheral: NSNumber]) {
+        
+        if (reconnectLast) {
+            var foundedPeripheral: CBPeripheral?
+            foundedPeripheral = nil
+            for peripheral in scanPeripherals.keys {
+                if (peripheral.name == lastConnectedDeviceName) {
+                    foundedPeripheral = peripheral
+                }
+            }
+            reconnectLast = false
+            if let peripheral = foundedPeripheral {
+                connectPeripheral(peripheral: peripheral)
+            }
+        }
+        
         NotificationCenter.default.post(name: .BLEScanFinished, object: nil)
         NotificationCenter.default.post(name: .BLEScanResults, object: scanPeripherals)
     }
@@ -147,22 +182,21 @@ class NetwOBLE: NSObject, BluetoothLibraryDelegate {
         if characteristic.uuid.uuidString == BLEMainCharacteristic.uuidString {
 
             if error == nil {
-
-                if let value: Data = characteristic.value,
-                   let dataString = String(data: value, encoding: String.Encoding.utf8) {
-                    
-                    NotificationCenter.default.post(name: .BLECollectDatas, object: dataString)
-                    
-                }
                 
+                if writeType == "test",
+                    let value: Data = characteristic.value,
+                   let dataString = String(data: value, encoding: String.Encoding.utf8) {
+                    NotificationCenter.default.post(name: .BLECollectDatas, object: dataString)
+                }else if (writeType == "deveui") {
+                    print("BLE: deveui updated")
+                    writeType = "test"
+                }
+
             } else {
-
                 // TODO: error jump ready
-
+                print("BLE: error \(error.debugDescription)")
             }
-
         }
-        
     }
 
     func centralManagerDidUpdateState(_ central: CBCentralManager, bluetoothEnabled: Bool) {

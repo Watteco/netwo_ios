@@ -7,68 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0097064E7F7D3F413161738CC5C25EEC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D554F219FF043E83EC900184BE43ADF /* MBProgressHUD.m */; };
-		0AA33EBB857A5205F87C09CCB99EAC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
-		0C46EB464930D1D516BE3E118FBF3B27 /* AAInfographics-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3DE10AF1410FA37094DB4D345DFBE3 /* AAInfographics-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F9C1E73C0FDECB5DDEDC78CFE0646DE /* Pods-NetwO-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74517B95578E29E938C8CC698B3B51E3 /* Pods-NetwO-dummy.m */; };
-		1087364753D4A0D5811956EE6225D770 /* AASeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76918011EA26DD533BEC5718563322 /* AASeries.swift */; };
-		1640A00D220D7A64B50EAB15889BE255 /* AAJSFiles.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B363DC0577543B6F6CCCADF07859109D /* AAJSFiles.bundle */; };
-		18DD04E0BEA6480EE146822FD12FB5D5 /* AACredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8211A3053598DF10CC004BF52A073993 /* AACredits.swift */; };
-		29B3E024A84060BB00546DA9C57352A5 /* AAChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC938E87DBAA47BC801E9DF2FF9CDAE /* AAChartView.swift */; };
-		2EF56E49D3156BE38F64FA4054E1AACA /* AAPlotLinesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC67F9E7711EB2A1E622E1FAE5F1E740 /* AAPlotLinesElement.swift */; };
-		3B1B271AFD2484C513F73A5F110B5797 /* AAScrollablePlotArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB006970355DC9D2B3F350E663673AF8 /* AAScrollablePlotArea.swift */; };
-		3FFEDA1D658297036D8FFC21644C37C3 /* Pods-NetwO-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A228D7D643D1571E3A0EBA05366E6A /* Pods-NetwO-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41226620E5926CE62C3E7F1E082B1115 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
-		43001734951CB2F02AA57A521D85C538 /* AAStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC32736089F4A728E6CE41C3E9E0147 /* AAStates.swift */; };
-		4C76DCF1E75CAF9DD456C0908840BD7C /* AAOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0E5D3038F9C55BF9582E8F3AD2F77 /* AAOptions.swift */; };
-		4DCBC5859EBE49E9C531CA8CDE7D1FB8 /* AAAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87552DF3875FB3436A188D5DB722DEF7 /* AAAnimation.swift */; };
-		53CFB0F634C9EEC5E364865ECBFDD655 /* AALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8663A6CEFD079560CF0BA3F8E9119 /* AALabel.swift */; };
-		54A99A0884A902EC27BB000D087777E8 /* AALegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA90594ED43A8DCD0446CD7688641C /* AALegend.swift */; };
-		58C91B4AB36E6B16421106CA634C58EF /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA109AFC33246849B854EDC8E69293A2 /* MBProgressHUD-dummy.m */; };
-		5BAC1EF86D0E57E44E404B2796993561 /* MBProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A707404B4CA349C96E33AB0D17804D /* MBProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D5AED452EE786E354E94D7F876181C8 /* AAStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54F143754FD9621BE74030ACE8ECE6 /* AAStyle.swift */; };
-		5EEA96B9C1D5134C7F57B4DD91FA464D /* AAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD97E891BF1406E2486F5E9A46E4F5 /* AAColor.swift */; };
-		67262711F05B3076411FB349EABFBCDB /* AAChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64653C0BD8B28FF229F658DE09140B48 /* AAChartModel.swift */; };
-		67E941CADB3CDDEEDF8CE4EE4A4A05BB /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 08DE1FA1AFB966A25D02251551A8F9C8 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7539EA55F3104202A0A366782EB21C1A /* AAInfographics-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BC23466F129C3FD0EA9514908AE63 /* AAInfographics-dummy.m */; };
-		75DA38CDDEBC4E34BEAA24390AA45795 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
-		848CD7632A93C85841BDB5482D610F69 /* AASubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6B1C49436681009518603BE9B20AFE /* AASubtitle.swift */; };
-		8596AF2338BBE9B8F60911714BE96AF8 /* AASerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068066B79A898F1CFD2BFC2E32A4504 /* AASerializable.swift */; };
-		91DBC55F3CD2936978E024149238E354 /* ProjectBundlePathLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ADF221297E429D9E46317C447BAF31 /* ProjectBundlePathLoader.swift */; };
-		9440AE8878A40DE7E587B20B8C1025B5 /* AADataLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E405C36FB6F5410DC1159B975E81AB /* AADataLabels.swift */; };
-		A4BFA8349CA0B47B67F5A936CC2A6970 /* AALang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E520F1D999F02EE13987B9A8351230 /* AALang.swift */; };
-		AFAC1D4EBD53A048346210536741DF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABB98090B02C131F86931CB9BE54B7A /* CoreGraphics.framework */; };
-		B0EAFA244654AD938516A9BEB42316C0 /* AAYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4803F8F8AC3A79110260FE48500B1 /* AAYAxis.swift */; };
-		B1A5A406805B89C436A6A68AB577914E /* AAChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09838EDB91433F2E2BC229268CA30BF /* AAChart.swift */; };
-		B52177FF72FDAC3EDB7195DE98F5501E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB40693B18F443F75126966ED13E47 /* QuartzCore.framework */; };
-		B59953AAB38A5BB4EA1DD9AFB697C5CF /* AATooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708CC2E91439AD9E1C826ECB19563FA9 /* AATooltip.swift */; };
-		B67438846135718BFA7CBACDD97B5A9B /* AACrosshair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CDA11357E75FFC9CB767DCF75D338 /* AACrosshair.swift */; };
-		C160C195A1D5749C6F78F23482AF7B7A /* AAGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14947F2EB058CA7424378AE044004B /* AAGradientColor.swift */; };
-		C333AE5332280E12D21484DED9059A42 /* AAPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740DEF378288AB9B8B73DB35905AD1B /* AAPane.swift */; };
-		D385CD04994714162035EE3D479C005D /* AAMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC10C9F86B93EB35A6F8BE1B27FF493 /* AAMarker.swift */; };
-		DA1DF23B97DFAEBD73902DE99165160C /* AAPlotBandsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D8315274B9203398DA8BB0ED89240 /* AAPlotBandsElement.swift */; };
-		DF3EE3900789B9ABEF16E9AAB02A13CB /* AASeriesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B2D1C939C4C9029EBC77C465E9A343 /* AASeriesElement.swift */; };
-		E5FA6834A3C3F97BAB5C9C6C2B5FD073 /* AATitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09731C8C380FD0644AF7729C4B672F4E /* AATitle.swift */; };
-		E98849A0C00D4EA3B5005C875B67CCE9 /* AAXAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5962B3D9817BDA634C62EA2784238C2 /* AAXAxis.swift */; };
-		E99D501760E9F7A9B5CE73C66FBF70BE /* AALabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FB79CF077674DD9999615944989F13 /* AALabels.swift */; };
-		EE5CDBC163DC3DB20DD0B643292F63B9 /* AAPlotOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEFD609537D46876EBB438CE47005B1 /* AAPlotOptions.swift */; };
-		FB57BA60961D0E552153042D36F24865 /* AAExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09906EE0F97C63DE79B9391C2342B31B /* AAExtension.swift */; };
+		01C7806EA5623E8CF189C70110DFC18C /* AAPlotLinesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC67F9E7711EB2A1E622E1FAE5F1E740 /* AAPlotLinesElement.swift */; };
+		035F294118E7AC8668CBE5B19EB4147E /* AAPlotOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEFD609537D46876EBB438CE47005B1 /* AAPlotOptions.swift */; };
+		054BA7BFA5CBBD1566515752396E63D4 /* AAStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC32736089F4A728E6CE41C3E9E0147 /* AAStates.swift */; };
+		0A483D55265B93754CDB6CCF8909540C /* AAMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC10C9F86B93EB35A6F8BE1B27FF493 /* AAMarker.swift */; };
+		1165132E4CF1796A4DC30EF95C40678E /* AAStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA54F143754FD9621BE74030ACE8ECE6 /* AAStyle.swift */; };
+		1EAD9854FC81DFA3F4BA4EFA965E0B9B /* Pods-NetwO-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 74517B95578E29E938C8CC698B3B51E3 /* Pods-NetwO-dummy.m */; };
+		37F1EE2B1B65F40041CA4FCD861B5BE8 /* AAChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64653C0BD8B28FF229F658DE09140B48 /* AAChartModel.swift */; };
+		4142F662FFFFD44E5CFA93E7C6341945 /* AASerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068066B79A898F1CFD2BFC2E32A4504 /* AASerializable.swift */; };
+		43F728A71BA10443349335489699E03C /* AASeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76918011EA26DD533BEC5718563322 /* AASeries.swift */; };
+		6334A80032CF117387BE6EB9C644C54D /* AASubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6B1C49436681009518603BE9B20AFE /* AASubtitle.swift */; };
+		645D1258BD5B55771DED561B287DF197 /* ProjectBundlePathLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ADF221297E429D9E46317C447BAF31 /* ProjectBundlePathLoader.swift */; };
+		70EE1C774C978E1876AE6CA1224E897D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D554F219FF043E83EC900184BE43ADF /* MBProgressHUD.m */; };
+		7596519E375DA27F6E7D05D440757055 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABB98090B02C131F86931CB9BE54B7A /* CoreGraphics.framework */; };
+		77CEB470B25B9BE765FA8F25D03F296E /* AATitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09731C8C380FD0644AF7729C4B672F4E /* AATitle.swift */; };
+		7A2C945D9FA9D3242B2609E95C81FB9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
+		7A44063B77E71AA3CA8D02C14418E3CD /* AALang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E520F1D999F02EE13987B9A8351230 /* AALang.swift */; };
+		7ED4F2A38262AA4486B19DF8ABD29451 /* AAOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0E5D3038F9C55BF9582E8F3AD2F77 /* AAOptions.swift */; };
+		817E060ACDE56966B199DF6A5F01E8E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
+		81B9E2F21B1EF9FE4E769103108DEA8A /* MBProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62A707404B4CA349C96E33AB0D17804D /* MBProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		824826DC933939AB43176113B2738B97 /* AALegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA90594ED43A8DCD0446CD7688641C /* AALegend.swift */; };
+		97AEB7615F9FE6AFEDB608733E1794D2 /* AALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8663A6CEFD079560CF0BA3F8E9119 /* AALabel.swift */; };
+		A28A5CB0B0E220A8000E573FA2F94F5B /* AAExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09906EE0F97C63DE79B9391C2342B31B /* AAExtension.swift */; };
+		AB13FDB1166A19335390DB55D886B676 /* AATooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708CC2E91439AD9E1C826ECB19563FA9 /* AATooltip.swift */; };
+		AC1B5B34F7456E723EC031A496585471 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */; };
+		AEB517244B8B4DDB93802A1C7F148938 /* AACredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8211A3053598DF10CC004BF52A073993 /* AACredits.swift */; };
+		AEC9863D4C02D14E0D80D24EE157D597 /* AAScrollablePlotArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB006970355DC9D2B3F350E663673AF8 /* AAScrollablePlotArea.swift */; };
+		B4DE15A51B39594D2DB972DB49272ABB /* AAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD97E891BF1406E2486F5E9A46E4F5 /* AAColor.swift */; };
+		B5EC15FBBB03FA93AEB50B10EEA3F96E /* AAXAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5962B3D9817BDA634C62EA2784238C2 /* AAXAxis.swift */; };
+		B7E5B305DABA9C07B2AAE4BD5E1CE902 /* AALabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FB79CF077674DD9999615944989F13 /* AALabels.swift */; };
+		BDA798B287CF887EA3D900FDFDB1973D /* AAJSFiles.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B363DC0577543B6F6CCCADF07859109D /* AAJSFiles.bundle */; };
+		C679E01009997AD1842CE96F8EC67C95 /* AAChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09838EDB91433F2E2BC229268CA30BF /* AAChart.swift */; };
+		CE6BDB575270BC99793C1660D80B1E66 /* AAPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1740DEF378288AB9B8B73DB35905AD1B /* AAPane.swift */; };
+		D1851E2F86D738345BA7E79D6CDBE142 /* AAInfographics-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3DE10AF1410FA37094DB4D345DFBE3 /* AAInfographics-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7B4F4B68CCEA8550E80D4825B736EC5 /* AAYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E4803F8F8AC3A79110260FE48500B1 /* AAYAxis.swift */; };
+		DABF20F73D27572CD97071A6D4DB9004 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA109AFC33246849B854EDC8E69293A2 /* MBProgressHUD-dummy.m */; };
+		DD4CDA06D6FD64F1399C8B99FCBD0F12 /* AAChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC938E87DBAA47BC801E9DF2FF9CDAE /* AAChartView.swift */; };
+		DDBF96ECC77BEF089C277DB887F3449A /* Pods-NetwO-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A228D7D643D1571E3A0EBA05366E6A /* Pods-NetwO-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5D6C69A85B7C0F31D82A19F2F12B89D /* AAInfographics-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BC23466F129C3FD0EA9514908AE63 /* AAInfographics-dummy.m */; };
+		E614A0C1159F02EC1D4FDCDCBF71B68A /* AADataLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E405C36FB6F5410DC1159B975E81AB /* AADataLabels.swift */; };
+		EB2A4C29BE958CCB03B3FD9FAB927F1F /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 08DE1FA1AFB966A25D02251551A8F9C8 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB5E12CD7B66792B9220634AA88B8C2B /* AACrosshair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CDA11357E75FFC9CB767DCF75D338 /* AACrosshair.swift */; };
+		EB9F7AEF80844C683ECCDEF3E38C869B /* AASeriesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B2D1C939C4C9029EBC77C465E9A343 /* AASeriesElement.swift */; };
+		ED60676D125D8BA602330D7069D13CA8 /* AAAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87552DF3875FB3436A188D5DB722DEF7 /* AAAnimation.swift */; };
+		F13C1362C8EAC62089BDD6A458F8074E /* AAGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14947F2EB058CA7424378AE044004B /* AAGradientColor.swift */; };
+		F612969E69DE5F072AD96720641B1184 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB40693B18F443F75126966ED13E47 /* QuartzCore.framework */; };
+		FB2C97327623825B2C26AA662CE7A7C0 /* AAPlotBandsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D8315274B9203398DA8BB0ED89240 /* AAPlotBandsElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AD9E369161016B82476519862EAC9CC7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 81AB6AA06BE8625CF139234A31B027FE;
-			remoteInfo = AAInfographics;
-		};
-		E0D09F8C0812E86C1756834A2EBDB100 /* PBXContainerItemProxy */ = {
+		17A6896C8A081D8883D61CA8F797E5DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 82B0A41D3031FF27D78E17B0A9A46FB0;
 			remoteInfo = MBProgressHUD;
+		};
+		504C1971B7D3CBE5F0828F0A8C3FCCDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81AB6AA06BE8625CF139234A31B027FE;
+			remoteInfo = AAInfographics;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -103,7 +103,7 @@
 		87552DF3875FB3436A188D5DB722DEF7 /* AAAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AAAnimation.swift; path = AAInfographics/AAOptionsModel/AAAnimation.swift; sourceTree = "<group>"; };
 		87E520F1D999F02EE13987B9A8351230 /* AALang.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AALang.swift; path = AAInfographics/AAOptionsModel/AALang.swift; sourceTree = "<group>"; };
 		886CDA11357E75FFC9CB767DCF75D338 /* AACrosshair.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AACrosshair.swift; path = AAInfographics/AAOptionsModel/AACrosshair.swift; sourceTree = "<group>"; };
-		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBProgressHUD.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEFD609537D46876EBB438CE47005B1 /* AAPlotOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AAPlotOptions.swift; path = AAInfographics/AAOptionsModel/AAPlotOptions.swift; sourceTree = "<group>"; };
 		8F14947F2EB058CA7424378AE044004B /* AAGradientColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AAGradientColor.swift; path = AAInfographics/AATool/AAGradientColor.swift; sourceTree = "<group>"; };
 		8F9A619C4723FE57194DCEBFE4188053 /* Pods-NetwO-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetwO-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		B21B6B1175A3A7B2C2F2A6CC36E67FF7 /* MBProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.debug.xcconfig; sourceTree = "<group>"; };
 		B363DC0577543B6F6CCCADF07859109D /* AAJSFiles.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AAJSFiles.bundle; path = AAInfographics/AAJSFiles.bundle; sourceTree = "<group>"; };
 		B492A882CC14A520B5E583127A0B8A52 /* Pods-NetwO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetwO.debug.xcconfig"; sourceTree = "<group>"; };
-		B873D67EB7453A157223422C7DF664BC /* Pods-NetwO */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-NetwO"; path = Pods_NetwO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B873D67EB7453A157223422C7DF664BC /* Pods_NetwO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetwO.framework; path = "Pods-NetwO.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA109AFC33246849B854EDC8E69293A2 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		BA54F143754FD9621BE74030ACE8ECE6 /* AAStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AAStyle.swift; path = AAInfographics/AAOptionsModel/AAStyle.swift; sourceTree = "<group>"; };
 		BA76918011EA26DD533BEC5718563322 /* AASeries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AASeries.swift; path = AAInfographics/AAOptionsModel/AASeries.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		CB342FF58CA5A5D1282C84E02280A34F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CB6B1C49436681009518603BE9B20AFE /* AASubtitle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AASubtitle.swift; path = AAInfographics/AAOptionsModel/AASubtitle.swift; sourceTree = "<group>"; };
 		D09838EDB91433F2E2BC229268CA30BF /* AAChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AAChart.swift; path = AAInfographics/AAOptionsModel/AAChart.swift; sourceTree = "<group>"; };
-		D6CCB9D258E15D810E80DB9950E2B5AC /* AAInfographics */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AAInfographics; path = AAInfographics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6CCB9D258E15D810E80DB9950E2B5AC /* AAInfographics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AAInfographics.framework; path = AAInfographics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD855CB895B440E6CD60B8F91E91C470 /* MBProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.release.xcconfig; sourceTree = "<group>"; };
 		EBEA90594ED43A8DCD0446CD7688641C /* AALegend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AALegend.swift; path = AAInfographics/AAOptionsModel/AALegend.swift; sourceTree = "<group>"; };
 		EC3DE10AF1410FA37094DB4D345DFBE3 /* AAInfographics-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AAInfographics-umbrella.h"; sourceTree = "<group>"; };
@@ -141,29 +141,29 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		29BC4424C11F4AC9FC4C874AC270BCF6 /* Frameworks */ = {
+		1AA3C16B4B3AB40CA74BDDADEF5C143A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75DA38CDDEBC4E34BEAA24390AA45795 /* Foundation.framework in Frameworks */,
+				7596519E375DA27F6E7D05D440757055 /* CoreGraphics.framework in Frameworks */,
+				AC1B5B34F7456E723EC031A496585471 /* Foundation.framework in Frameworks */,
+				F612969E69DE5F072AD96720641B1184 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6DC8F0C2894774845C1DD2E7CA07B0C /* Frameworks */ = {
+		5483ACF523B307F6432873E594A9AAC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFAC1D4EBD53A048346210536741DF13 /* CoreGraphics.framework in Frameworks */,
-				0AA33EBB857A5205F87C09CCB99EAC74 /* Foundation.framework in Frameworks */,
-				B52177FF72FDAC3EDB7195DE98F5501E /* QuartzCore.framework in Frameworks */,
+				817E060ACDE56966B199DF6A5F01E8E7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC2401750F74E05B45CA83EFA2CE4945 /* Frameworks */ = {
+		6105ABA598C40B7AEBD8E92B171214FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41226620E5926CE62C3E7F1E082B1115 /* Foundation.framework in Frameworks */,
+				7A2C945D9FA9D3242B2609E95C81FB9C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,25 +302,25 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BC4DC08E190C42802C6CCB73E52EDA4B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D6CCB9D258E15D810E80DB9950E2B5AC /* AAInfographics */,
-				8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD */,
-				B873D67EB7453A157223422C7DF664BC /* Pods-NetwO */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				3AC63720DCE4CE6EFBA11302288F64BA /* Pods */,
-				BC4DC08E190C42802C6CCB73E52EDA4B /* Products */,
+				DB12B9C0447C1368624C4C65094DAC4C /* Products */,
 				AA3B20B2E15F49C61FEBED0861C22178 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		DB12B9C0447C1368624C4C65094DAC4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6CCB9D258E15D810E80DB9950E2B5AC /* AAInfographics.framework */,
+				8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */,
+				B873D67EB7453A157223422C7DF664BC /* Pods_NetwO.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		FB3954B284F9E3F33601D3A5122E8146 /* MBProgressHUD */ = {
@@ -337,28 +337,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5D82C29ACD851E6EA219B34A73C961F5 /* Headers */ = {
+		3C4D4196ECEEDDCE3DFECBE2F64AC797 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E941CADB3CDDEEDF8CE4EE4A4A05BB /* MBProgressHUD.h in Headers */,
-				5BAC1EF86D0E57E44E404B2796993561 /* MBProgressHUD-umbrella.h in Headers */,
+				D1851E2F86D738345BA7E79D6CDBE142 /* AAInfographics-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7FBD11AD8DD475E559C6D5841E7BF5C7 /* Headers */ = {
+		48C75F650B75479624499FBC855C4CD4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C46EB464930D1D516BE3E118FBF3B27 /* AAInfographics-umbrella.h in Headers */,
+				DDBF96ECC77BEF089C277DB887F3449A /* Pods-NetwO-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C533C719BFE898558B6299C69403FADD /* Headers */ = {
+		8F0EBAB2761523F18BB73EB4DC5CBEC3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFEDA1D658297036D8FFC21644C37C3 /* Pods-NetwO-umbrella.h in Headers */,
+				81B9E2F21B1EF9FE4E769103108DEA8A /* MBProgressHUD-umbrella.h in Headers */,
+				EB2A4C29BE958CCB03B3FD9FAB927F1F /* MBProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +367,12 @@
 /* Begin PBXNativeTarget section */
 		81AB6AA06BE8625CF139234A31B027FE /* AAInfographics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5EA1F14F155167AEC3EA3A89546189E4 /* Build configuration list for PBXNativeTarget "AAInfographics" */;
+			buildConfigurationList = FEA882AB5537917E9810FA51378E3E64 /* Build configuration list for PBXNativeTarget "AAInfographics" */;
 			buildPhases = (
-				7FBD11AD8DD475E559C6D5841E7BF5C7 /* Headers */,
-				5A70564B70839423ABCF231BA2E2B1A1 /* Sources */,
-				29BC4424C11F4AC9FC4C874AC270BCF6 /* Frameworks */,
-				AB7C936E63FD4AD423963908DC4E0228 /* Resources */,
+				3C4D4196ECEEDDCE3DFECBE2F64AC797 /* Headers */,
+				5D45EA0ECD35DE6D8B12974353DB89A6 /* Sources */,
+				5483ACF523B307F6432873E594A9AAC6 /* Frameworks */,
+				E89FD10229277A7715A7B7100925EFB2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -380,17 +380,17 @@
 			);
 			name = AAInfographics;
 			productName = AAInfographics;
-			productReference = D6CCB9D258E15D810E80DB9950E2B5AC /* AAInfographics */;
+			productReference = D6CCB9D258E15D810E80DB9950E2B5AC /* AAInfographics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		82B0A41D3031FF27D78E17B0A9A46FB0 /* MBProgressHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7BD2681E97C00DCC2EF91B0EBA76110 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
+			buildConfigurationList = 70191416B9573C7ABB42333A08FA2DE4 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
 			buildPhases = (
-				5D82C29ACD851E6EA219B34A73C961F5 /* Headers */,
-				7E957D4020E4C4BC633BF50F7F51E5F6 /* Sources */,
-				D6DC8F0C2894774845C1DD2E7CA07B0C /* Frameworks */,
-				C0E0F7D28F4D633128D0F53BEAE34D3D /* Resources */,
+				8F0EBAB2761523F18BB73EB4DC5CBEC3 /* Headers */,
+				D2F84DC2E2DB3628B17B3841F2837477 /* Sources */,
+				1AA3C16B4B3AB40CA74BDDADEF5C143A /* Frameworks */,
+				435BF4D16B2F9CAB6E7F883F30E32B74 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -398,27 +398,27 @@
 			);
 			name = MBProgressHUD;
 			productName = MBProgressHUD;
-			productReference = 8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD */;
+			productReference = 8B8FAB0D627B17EDE1366984278705D9 /* MBProgressHUD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C5FC6072765A71DFFF5320553169DB76 /* Pods-NetwO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F58425815C0EAE60FD385BFB57152299 /* Build configuration list for PBXNativeTarget "Pods-NetwO" */;
+			buildConfigurationList = 8174E07AF920A62D6A6A667C5807EAF9 /* Build configuration list for PBXNativeTarget "Pods-NetwO" */;
 			buildPhases = (
-				C533C719BFE898558B6299C69403FADD /* Headers */,
-				C5F41FE800A3D084539878823B34C6D1 /* Sources */,
-				EC2401750F74E05B45CA83EFA2CE4945 /* Frameworks */,
-				AEC106798DF1BA9A6AC8BC6589D0C543 /* Resources */,
+				48C75F650B75479624499FBC855C4CD4 /* Headers */,
+				7C542B23E7ACC6DFB6813A948F373563 /* Sources */,
+				6105ABA598C40B7AEBD8E92B171214FE /* Frameworks */,
+				7013F77F241D4C75ADFBDFE8CEE2D7AE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A77ABE6585F5E725F171AAE90BD8CF3F /* PBXTargetDependency */,
-				C9E5FE3FB0C6EA17D63963BB036E91EE /* PBXTargetDependency */,
+				AEF01293A21390E3EC75FFCC91F53B60 /* PBXTargetDependency */,
+				0E79332B5F8D4333CB7E936573B0621C /* PBXTargetDependency */,
 			);
 			name = "Pods-NetwO";
-			productName = Pods_NetwO;
-			productReference = B873D67EB7453A157223422C7DF664BC /* Pods-NetwO */;
+			productName = "Pods-NetwO";
+			productReference = B873D67EB7453A157223422C7DF664BC /* Pods_NetwO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -427,19 +427,19 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				Base,
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = BC4DC08E190C42802C6CCB73E52EDA4B /* Products */;
+			productRefGroup = DB12B9C0447C1368624C4C65094DAC4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -451,215 +451,106 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AB7C936E63FD4AD423963908DC4E0228 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1640A00D220D7A64B50EAB15889BE255 /* AAJSFiles.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AEC106798DF1BA9A6AC8BC6589D0C543 /* Resources */ = {
+		435BF4D16B2F9CAB6E7F883F30E32B74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0E0F7D28F4D633128D0F53BEAE34D3D /* Resources */ = {
+		7013F77F241D4C75ADFBDFE8CEE2D7AE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E89FD10229277A7715A7B7100925EFB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA798B287CF887EA3D900FDFDB1973D /* AAJSFiles.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5A70564B70839423ABCF231BA2E2B1A1 /* Sources */ = {
+		5D45EA0ECD35DE6D8B12974353DB89A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DCBC5859EBE49E9C531CA8CDE7D1FB8 /* AAAnimation.swift in Sources */,
-				B1A5A406805B89C436A6A68AB577914E /* AAChart.swift in Sources */,
-				67262711F05B3076411FB349EABFBCDB /* AAChartModel.swift in Sources */,
-				29B3E024A84060BB00546DA9C57352A5 /* AAChartView.swift in Sources */,
-				5EEA96B9C1D5134C7F57B4DD91FA464D /* AAColor.swift in Sources */,
-				18DD04E0BEA6480EE146822FD12FB5D5 /* AACredits.swift in Sources */,
-				B67438846135718BFA7CBACDD97B5A9B /* AACrosshair.swift in Sources */,
-				9440AE8878A40DE7E587B20B8C1025B5 /* AADataLabels.swift in Sources */,
-				FB57BA60961D0E552153042D36F24865 /* AAExtension.swift in Sources */,
-				C160C195A1D5749C6F78F23482AF7B7A /* AAGradientColor.swift in Sources */,
-				7539EA55F3104202A0A366782EB21C1A /* AAInfographics-dummy.m in Sources */,
-				53CFB0F634C9EEC5E364865ECBFDD655 /* AALabel.swift in Sources */,
-				E99D501760E9F7A9B5CE73C66FBF70BE /* AALabels.swift in Sources */,
-				A4BFA8349CA0B47B67F5A936CC2A6970 /* AALang.swift in Sources */,
-				54A99A0884A902EC27BB000D087777E8 /* AALegend.swift in Sources */,
-				D385CD04994714162035EE3D479C005D /* AAMarker.swift in Sources */,
-				4C76DCF1E75CAF9DD456C0908840BD7C /* AAOptions.swift in Sources */,
-				C333AE5332280E12D21484DED9059A42 /* AAPane.swift in Sources */,
-				DA1DF23B97DFAEBD73902DE99165160C /* AAPlotBandsElement.swift in Sources */,
-				2EF56E49D3156BE38F64FA4054E1AACA /* AAPlotLinesElement.swift in Sources */,
-				EE5CDBC163DC3DB20DD0B643292F63B9 /* AAPlotOptions.swift in Sources */,
-				3B1B271AFD2484C513F73A5F110B5797 /* AAScrollablePlotArea.swift in Sources */,
-				8596AF2338BBE9B8F60911714BE96AF8 /* AASerializable.swift in Sources */,
-				1087364753D4A0D5811956EE6225D770 /* AASeries.swift in Sources */,
-				DF3EE3900789B9ABEF16E9AAB02A13CB /* AASeriesElement.swift in Sources */,
-				43001734951CB2F02AA57A521D85C538 /* AAStates.swift in Sources */,
-				5D5AED452EE786E354E94D7F876181C8 /* AAStyle.swift in Sources */,
-				848CD7632A93C85841BDB5482D610F69 /* AASubtitle.swift in Sources */,
-				E5FA6834A3C3F97BAB5C9C6C2B5FD073 /* AATitle.swift in Sources */,
-				B59953AAB38A5BB4EA1DD9AFB697C5CF /* AATooltip.swift in Sources */,
-				E98849A0C00D4EA3B5005C875B67CCE9 /* AAXAxis.swift in Sources */,
-				B0EAFA244654AD938516A9BEB42316C0 /* AAYAxis.swift in Sources */,
-				91DBC55F3CD2936978E024149238E354 /* ProjectBundlePathLoader.swift in Sources */,
+				ED60676D125D8BA602330D7069D13CA8 /* AAAnimation.swift in Sources */,
+				C679E01009997AD1842CE96F8EC67C95 /* AAChart.swift in Sources */,
+				37F1EE2B1B65F40041CA4FCD861B5BE8 /* AAChartModel.swift in Sources */,
+				DD4CDA06D6FD64F1399C8B99FCBD0F12 /* AAChartView.swift in Sources */,
+				B4DE15A51B39594D2DB972DB49272ABB /* AAColor.swift in Sources */,
+				AEB517244B8B4DDB93802A1C7F148938 /* AACredits.swift in Sources */,
+				EB5E12CD7B66792B9220634AA88B8C2B /* AACrosshair.swift in Sources */,
+				E614A0C1159F02EC1D4FDCDCBF71B68A /* AADataLabels.swift in Sources */,
+				A28A5CB0B0E220A8000E573FA2F94F5B /* AAExtension.swift in Sources */,
+				F13C1362C8EAC62089BDD6A458F8074E /* AAGradientColor.swift in Sources */,
+				E5D6C69A85B7C0F31D82A19F2F12B89D /* AAInfographics-dummy.m in Sources */,
+				97AEB7615F9FE6AFEDB608733E1794D2 /* AALabel.swift in Sources */,
+				B7E5B305DABA9C07B2AAE4BD5E1CE902 /* AALabels.swift in Sources */,
+				7A44063B77E71AA3CA8D02C14418E3CD /* AALang.swift in Sources */,
+				824826DC933939AB43176113B2738B97 /* AALegend.swift in Sources */,
+				0A483D55265B93754CDB6CCF8909540C /* AAMarker.swift in Sources */,
+				7ED4F2A38262AA4486B19DF8ABD29451 /* AAOptions.swift in Sources */,
+				CE6BDB575270BC99793C1660D80B1E66 /* AAPane.swift in Sources */,
+				FB2C97327623825B2C26AA662CE7A7C0 /* AAPlotBandsElement.swift in Sources */,
+				01C7806EA5623E8CF189C70110DFC18C /* AAPlotLinesElement.swift in Sources */,
+				035F294118E7AC8668CBE5B19EB4147E /* AAPlotOptions.swift in Sources */,
+				AEC9863D4C02D14E0D80D24EE157D597 /* AAScrollablePlotArea.swift in Sources */,
+				4142F662FFFFD44E5CFA93E7C6341945 /* AASerializable.swift in Sources */,
+				43F728A71BA10443349335489699E03C /* AASeries.swift in Sources */,
+				EB9F7AEF80844C683ECCDEF3E38C869B /* AASeriesElement.swift in Sources */,
+				054BA7BFA5CBBD1566515752396E63D4 /* AAStates.swift in Sources */,
+				1165132E4CF1796A4DC30EF95C40678E /* AAStyle.swift in Sources */,
+				6334A80032CF117387BE6EB9C644C54D /* AASubtitle.swift in Sources */,
+				77CEB470B25B9BE765FA8F25D03F296E /* AATitle.swift in Sources */,
+				AB13FDB1166A19335390DB55D886B676 /* AATooltip.swift in Sources */,
+				B5EC15FBBB03FA93AEB50B10EEA3F96E /* AAXAxis.swift in Sources */,
+				D7B4F4B68CCEA8550E80D4825B736EC5 /* AAYAxis.swift in Sources */,
+				645D1258BD5B55771DED561B287DF197 /* ProjectBundlePathLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7E957D4020E4C4BC633BF50F7F51E5F6 /* Sources */ = {
+		7C542B23E7ACC6DFB6813A948F373563 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0097064E7F7D3F413161738CC5C25EEC /* MBProgressHUD.m in Sources */,
-				58C91B4AB36E6B16421106CA634C58EF /* MBProgressHUD-dummy.m in Sources */,
+				1EAD9854FC81DFA3F4BA4EFA965E0B9B /* Pods-NetwO-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C5F41FE800A3D084539878823B34C6D1 /* Sources */ = {
+		D2F84DC2E2DB3628B17B3841F2837477 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F9C1E73C0FDECB5DDEDC78CFE0646DE /* Pods-NetwO-dummy.m in Sources */,
+				DABF20F73D27572CD97071A6D4DB9004 /* MBProgressHUD-dummy.m in Sources */,
+				70EE1C774C978E1876AE6CA1224E897D /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A77ABE6585F5E725F171AAE90BD8CF3F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AAInfographics;
-			target = 81AB6AA06BE8625CF139234A31B027FE /* AAInfographics */;
-			targetProxy = AD9E369161016B82476519862EAC9CC7 /* PBXContainerItemProxy */;
-		};
-		C9E5FE3FB0C6EA17D63963BB036E91EE /* PBXTargetDependency */ = {
+		0E79332B5F8D4333CB7E936573B0621C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MBProgressHUD;
 			target = 82B0A41D3031FF27D78E17B0A9A46FB0 /* MBProgressHUD */;
-			targetProxy = E0D09F8C0812E86C1756834A2EBDB100 /* PBXContainerItemProxy */;
+			targetProxy = 17A6896C8A081D8883D61CA8F797E5DB /* PBXContainerItemProxy */;
+		};
+		AEF01293A21390E3EC75FFCC91F53B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AAInfographics;
+			target = 81AB6AA06BE8625CF139234A31B027FE /* AAInfographics */;
+			targetProxy = 504C1971B7D3CBE5F0828F0A8C3FCCDA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0C8D7BEE4C5AAB05DA01EBE7506D95BF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED53B8D92F7D0648BEFAD8A54CFBD5F2 /* Pods-NetwO.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		0EF479051433F533F45E8830A976AA00 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 348038EFD5A1CDA2CCDD7D157B920410 /* AAInfographics.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/AAInfographics/AAInfographics-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AAInfographics/AAInfographics-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/AAInfographics/AAInfographics.modulemap";
-				PRODUCT_MODULE_NAME = AAInfographics;
-				PRODUCT_NAME = AAInfographics;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2773A2B4110CBD105D0D735B95C061DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B492A882CC14A520B5E583127A0B8A52 /* Pods-NetwO.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		2B9E26EAE2CD392AD762421F663075A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -726,41 +617,6 @@
 			};
 			name = Debug;
 		};
-		2ECD314E57C470252712895A00FBB746 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20385B561F40C068952785ED9C8DA26A /* AAInfographics.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/AAInfographics/AAInfographics-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AAInfographics/AAInfographics-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/AAInfographics/AAInfographics.modulemap";
-				PRODUCT_MODULE_NAME = AAInfographics;
-				PRODUCT_NAME = AAInfographics;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -823,7 +679,76 @@
 			};
 			name = Release;
 		};
-		C3C37B487645A54D043C2C18BF002F24 /* Release */ = {
+		77A0447E9B3B302286F3757CEBBAC7AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 348038EFD5A1CDA2CCDD7D157B920410 /* AAInfographics.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AAInfographics/AAInfographics-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AAInfographics/AAInfographics-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AAInfographics/AAInfographics.modulemap";
+				PRODUCT_MODULE_NAME = AAInfographics;
+				PRODUCT_NAME = AAInfographics;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8C9E433BCAE8D69F5369938974DAA7FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20385B561F40C068952785ED9C8DA26A /* AAInfographics.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AAInfographics/AAInfographics-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AAInfographics/AAInfographics-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AAInfographics/AAInfographics.modulemap";
+				PRODUCT_MODULE_NAME = AAInfographics;
+				PRODUCT_NAME = AAInfographics;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		93A2FF79E2EC721C724D10C8C2AF1B64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD855CB895B440E6CD60B8F91E91C470 /* MBProgressHUD.release.xcconfig */;
 			buildSettings = {
@@ -858,7 +783,44 @@
 			};
 			name = Release;
 		};
-		DE569755C8FE69395D8E6C347DC7A5F8 /* Debug */ = {
+		ABA9E722AEE5A7DD78F79C4CEDEFB403 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B492A882CC14A520B5E583127A0B8A52 /* Pods-NetwO.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CBFD66C31CBBEE4A24B97D6774480A7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B21B6B1175A3A7B2C2F2A6CC36E67FF7 /* MBProgressHUD.debug.xcconfig */;
 			buildSettings = {
@@ -892,6 +854,44 @@
 			};
 			name = Debug;
 		};
+		EB4428A1EA674E0727728EE8A56A589B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED53B8D92F7D0648BEFAD8A54CFBD5F2 /* Pods-NetwO.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NetwO/Pods-NetwO.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -904,29 +904,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5EA1F14F155167AEC3EA3A89546189E4 /* Build configuration list for PBXNativeTarget "AAInfographics" */ = {
+		70191416B9573C7ABB42333A08FA2DE4 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0EF479051433F533F45E8830A976AA00 /* Debug */,
-				2ECD314E57C470252712895A00FBB746 /* Release */,
+				CBFD66C31CBBEE4A24B97D6774480A7E /* Debug */,
+				93A2FF79E2EC721C724D10C8C2AF1B64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7BD2681E97C00DCC2EF91B0EBA76110 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
+		8174E07AF920A62D6A6A667C5807EAF9 /* Build configuration list for PBXNativeTarget "Pods-NetwO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DE569755C8FE69395D8E6C347DC7A5F8 /* Debug */,
-				C3C37B487645A54D043C2C18BF002F24 /* Release */,
+				ABA9E722AEE5A7DD78F79C4CEDEFB403 /* Debug */,
+				EB4428A1EA674E0727728EE8A56A589B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F58425815C0EAE60FD385BFB57152299 /* Build configuration list for PBXNativeTarget "Pods-NetwO" */ = {
+		FEA882AB5537917E9810FA51378E3E64 /* Build configuration list for PBXNativeTarget "AAInfographics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2773A2B4110CBD105D0D735B95C061DB /* Debug */,
-				0C8D7BEE4C5AAB05DA01EBE7506D95BF /* Release */,
+				77A0447E9B3B302286F3757CEBBAC7AB /* Debug */,
+				8C9E433BCAE8D69F5369938974DAA7FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

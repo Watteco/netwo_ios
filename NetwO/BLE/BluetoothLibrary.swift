@@ -81,7 +81,7 @@ class BluetoothLibrary: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         
         if centralManager?.state == CBManagerState.poweredOn {
             
-            print("TODO: start scan")
+            print("BLE: start scan")
             
             if autoconnect && peripheral != nil {
                 centralManager?.connect(peripheral!, options: nil)
@@ -101,7 +101,7 @@ class BluetoothLibrary: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     func stopScan() {
         
-        print("TODO: stop scan")
+        print("BLE: stop scan")
         
         if isScanning {
             
@@ -264,7 +264,7 @@ class BluetoothLibrary: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             self.characteristicsChecked = false
             self.bondChecked = false
             
-print("TODO: connected")
+print("BLE: connected")
             
             peripheral.delegate = self
             peripheral.discoverServices(self.servicesUUID.count > 0 ? self.servicesUUID : [CBUUID]())
@@ -279,7 +279,7 @@ print("TODO: connected")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             
-print("TODO: disconnected")
+print("BLE: disconnected")
             
             self.isConnected = false
             self.delegate?.didDisconnectPeripheral?()
@@ -292,7 +292,7 @@ print("TODO: disconnected")
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             
-print("TODO: failed to connect")
+print("BLE: failed to connect")
             
             self.isConnected = false
             self.delegate?.didFailedToConnectPeripheral?()
@@ -310,7 +310,7 @@ print("TODO: failed to connect")
                 nameString.count > 0,
                 nameString.hasPrefix("WTC-") {
                 
-                print("TODO: discover peripheral : \(peripheral.name ?? "")   rssi : \(RSSI.intValue)")
+                print("BLE: discover peripheral : \(peripheral.name ?? "")   rssi : \(RSSI.intValue)")
                 
                 if RSSI.intValue < 0 {
                     
@@ -372,7 +372,7 @@ print("TODO: failed to connect")
             if peripheral.services != nil {
                 for service in peripheral.services! {
                 
-                    print("TODO: discover service : \(service.uuid)")
+                    print("BLE: discover service : \(service.uuid)")
                     
                     if self.isServiceAllowed(service: service) {
                         peripheral.discoverCharacteristics(self.characteristicsUUID, for: service)
@@ -392,7 +392,7 @@ print("TODO: failed to connect")
             if (service.characteristics != nil) {
                 for characteristic in service.characteristics! {
                 
-                    print("TODO: discover characteristic : \(characteristic.uuid)")
+                    print("BLE: discover characteristic : \(characteristic.uuid)")
                     
                     if self.isCharacteristicAllowed(characteristic: characteristic) {
                         

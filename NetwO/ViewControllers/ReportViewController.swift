@@ -8,14 +8,15 @@
 import UIKit
 
 @objc protocol ReportViewControllerDelegate {
-    @objc optional func selectReport(reportViewController: ReportViewController, action: String)
+    @objc optional func selectReport(reportViewController: ReportViewController, action: String, filename: String)
 }
 
-class ReportViewController: UIViewController {
+class ReportViewController: UIViewController, UITextFieldDelegate {
     
     let backgroundButton = UIButton()
     let contentView = UIView()
-    
+    var filenameTextField = UITextField()
+    var filename = ""
     var delegate: ReportViewControllerDelegate?
         
     override func viewDidLoad() {
@@ -49,6 +50,25 @@ class ReportViewController: UIViewController {
         contentView.addSubview(titleLabel)
         
         yPosition += titleLabel.frame.size.height + 20.0
+        
+        // File name
+        let filenameLabel = UILabel(frame: CGRect(x: 20.0, y: yPosition, width: contentView.frame.size.width - 40.0, height: 30.0))
+        filenameLabel.autoresizingMask = .flexibleWidth
+        filenameLabel.numberOfLines = 0
+        filenameLabel.textAlignment = .center
+        filenameLabel.font = UIFont.systemFont(ofSize: 16.0)
+        filenameLabel.textColor = ColorTextGreyLight
+        filenameLabel.text = NSLocalizedString("exportFilename", comment: "")
+        contentView.addSubview(filenameLabel)
+        yPosition += filenameLabel.frame.size.height + 10.0
+        
+        filenameTextField = UITextField(frame: CGRect(x: 20.0, y: yPosition, width: contentView.frame.size.width - 40.0, height: 40.0))
+        filenameTextField.delegate = self
+        filenameTextField.text = filename
+        filenameTextField.backgroundColor = UIColor.white
+        contentView.addSubview(filenameTextField);
+        
+        yPosition += filenameTextField.frame.size.height + 20.0
         
         // buttons view
         let buttonsView = UIView(frame: CGRect(x: (contentView.frame.size.width - 240.0) / 2.0, y: yPosition, width: 240.0, height: 40.0))
@@ -101,33 +121,50 @@ class ReportViewController: UIViewController {
         dismissAction(action: nil)
     }
     
+    @objc func checkFilename() -> Bool {
+        
+        if (self.filenameTextField.text == nil) {
+            let errorAlert = UIAlertController(title: "Erreur", message: "Veuillez renseigner un nom de fichier", preferredStyle: .alert)
+            errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(errorAlert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     @objc func dismissAction(action: String?) {
         
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-
             self.backgroundButton.alpha = 0.0
             self.contentView.alpha = 0.0
-
         }, completion: { (finished: Bool) in
-            
             self.dismiss(animated: false) {
-                
-                if let actionString = action, actionString.count > 0 {
-                    self.delegate?.selectReport?(reportViewController: self, action: actionString)
+                if let actionString = action, actionString.count > 0, let filenameString = self.filenameTextField.text {
+                    self.delegate?.selectReport?(reportViewController: self, action: actionString, filename: filenameString)
                 }
-                
             }
-            
         })
-        
     }
     
     @objc func jsonAction() {
-        dismissAction(action: "json")
+        if (checkFilename()) {
+            dismissAction(action: "json")
+        }
     }
     
     @objc func csvAction() {
-        dismissAction(action: "csv")
+        if (checkFilename()) {
+            dismissAction(action: "csv")
+        }
     }
     
+    // MARK : UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        contentView.frame.origin.y = 50.0
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        contentView.frame.origin.y = ((self.view.frame.size.height - contentView.frame.size.height) / 2.0)
+    }
 }

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 @objc protocol SendViewControllerDelegate {
     @objc optional func sendValues(sendViewController: SendViewController, list: [Int])
+    @objc optional func updateDeveuiIndex(sendViewController: SendViewController, index: String)
 }
 
 class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -26,7 +28,13 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     let nbFramesTextField = UITextField()
     let adrSwitch = UISwitch()
     
+    var deveuiValues = [String]()
+    let deveuiTextField = UITextField()
+    let deveuiPickerView = UIPickerView()
+    var updateDeveuiInProgress = false
+    
     var delegate: SendViewControllerDelegate?
+    var deveui = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,6 +171,67 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         
         yPosition += adrLabel.frame.size.height + 20.0
         
+        // DEVEUI if exist
+        if (deveui.count > 0) {
+            
+            // DEVEUI values
+            let deveuiIndexStart = deveui.index(deveui.startIndex, offsetBy:9)
+            let deveuiIndexEnd = deveui.index(deveui.startIndex, offsetBy:11)
+            let rangeStart = deveui.startIndex...deveuiIndexStart
+            let rangeEnd = deveuiIndexEnd..<deveui.endIndex
+            let deveuiBefore = String(deveui[rangeStart])
+            let deveuiAfter = String(deveui[rangeEnd])
+            deveuiValues.append("\(deveuiBefore)0\(deveuiAfter)")
+            deveuiValues.append("\(deveuiBefore)1\(deveuiAfter)")
+            deveuiValues.append("\(deveuiBefore)2\(deveuiAfter)")
+            
+            let deveuiLabel = UILabel(frame: CGRect(x: 0.0, y: yPosition, width: contentView.frame.size.width / 2.0, height: 40.0))
+            deveuiLabel.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth]
+            deveuiLabel.textAlignment = .right
+            deveuiLabel.textColor = ColorTextGreyLight
+            deveuiLabel.font = UIFont.systemFont(ofSize: 16.0)
+            deveuiLabel.text = "DEVEUI"
+            contentView.addSubview(deveuiLabel)
+            
+            // sf textfield
+            deveuiTextField.frame = CGRect(x: contentView.frame.size.width / 2.0, y: yPosition, width: contentView.frame.size.width / 2.0, height: 40.0)
+            deveuiTextField.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth]
+            deveuiTextField.backgroundColor = .clear
+            deveuiTextField.returnKeyType = .done
+            deveuiTextField.keyboardType = .numberPad
+            deveuiTextField.font = UIFont.systemFont(ofSize: 16.0)
+            deveuiTextField.adjustsFontSizeToFitWidth = true
+            deveuiTextField.textAlignment = .center
+            deveuiTextField.textColor = .white
+            deveuiTextField.text = deveui
+            deveuiTextField.delegate = self
+            contentView.addSubview(deveuiTextField)
+            
+            let deveuiBottomLine = CALayer()
+            deveuiBottomLine.frame = CGRect(x: 15.0, y: deveuiTextField.frame.height - 1, width: deveuiTextField.frame.size.width - 30.0, height: 1.0)
+            deveuiBottomLine.backgroundColor = UIColor.white.cgColor
+            deveuiBottomLine.backgroundColor = UIColor(white: 1.0, alpha: 0.5).cgColor
+            deveuiTextField.borderStyle = .none
+            deveuiTextField.layer.addSublayer(deveuiBottomLine)
+            
+            // deveui pickerview
+            let currentIndex = deveui.index(deveui.startIndex, offsetBy:10) // Get current deveui to select it in pickerview
+            let selectedIndexString = String(deveui[currentIndex])
+            deveuiPickerView.dataSource = self
+            deveuiPickerView.delegate = self
+            deveuiTextField.inputView = deveuiPickerView
+            deveuiPickerView.selectRow(Int(selectedIndexString) ?? 0, inComponent: 0, animated: false)
+            
+            let deveuiTextFieldToolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: 44.0))
+            var deveuiBarItems = [UIBarButtonItem]()
+            deveuiBarItems.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil))
+            deveuiBarItems.append(UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(doneDeveuiAction)))
+            deveuiTextFieldToolbar.items = deveuiBarItems
+            deveuiTextField.inputAccessoryView = deveuiTextFieldToolbar
+            
+            yPosition += deveuiLabel.frame.size.height + 20.0
+        }
+        
         // send button
         let sendButton = UIButton(frame: CGRect(x: 20.0, y: yPosition, width: contentView.frame.size.width - 40.0, height: 40.0))
         sendButton.autoresizingMask = .flexibleWidth
@@ -194,12 +263,33 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         self.yContent = contentView.frame.origin.y
         
         // set default values
-        resetAction()
+        let defaults = UserDefaults.standard
+        let sfNumber = defaults.integer(forKey: DefaultsKeys.sfNumber)
+        if (sfNumber > 0) {
+            sfPickerView.selectRow(sfNumber, inComponent: 0, animated: false)
+            sfTextField.text = "\(sfNumber)"
+        }else {
+            sfPickerView.selectRow(5, inComponent: 0, animated: false)
+            sfTextField.text = "\(resetSF)"
+        }
+        
+        let frameNumber = defaults.integer(forKey: DefaultsKeys.frameNumber)
+        if (frameNumber > 0) {
+            nbFramesTextField.text = "\(frameNumber)"
+        }else {
+            nbFramesTextField.text = "\(resetNbFrame)"
+        }
+        
+        let adr = defaults.integer(forKey: DefaultsKeys.adr)
+        adrSwitch.isOn = (adr != 0)
         
         // keyboard notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceConnected), name: .BLEDeviceConnected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceFailedToConnect), name: .BLEDeviceFailedToConnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDisconnected), name: .BLEDeviceDisconnected, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -231,6 +321,26 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         
     }
     
+    @objc func doneDeveuiAction() {
+        
+        deveuiTextField.resignFirstResponder()
+        
+        let newDeveui = deveuiTextField.text ?? ""
+        let deveuiArray = Array(newDeveui)
+        if (deveuiArray.count > 0 && deveuiTextField.text != deveui) {
+            
+            updateDeveuiInProgress = true
+            
+            // Lock send and reset actions
+            let alert = MBProgressHUD.showAdded(to: self.view, animated: true)
+            alert.mode = .text
+            alert.label.text = NSLocalizedString("deveui_save_in_progress", comment: "")
+            
+            let deveuiNumber = deveuiArray[10]
+            self.delegate?.updateDeveuiIndex?(sendViewController: self, index:String(deveuiNumber))
+        }
+    }
+    
     @objc func doneAction() {
         sfTextField.resignFirstResponder()
         nbFramesTextField.resignFirstResponder()
@@ -256,6 +366,12 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
             list.append(nbFrames)
             list.append(adrValue)
             
+            let defaults = UserDefaults.standard
+            defaults.set(sfValue, forKey: DefaultsKeys.sfNumber)
+            defaults.set(nbFrames, forKey: DefaultsKeys.frameNumber)
+            defaults.set(adrValue, forKey: DefaultsKeys.adr)
+            defaults.synchronize()
+            
             self.delegate?.sendValues?(sendViewController: self, list: list)
             
             dismissAction()
@@ -272,13 +388,12 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         sfTextField.text = "\(resetSF)"
         nbFramesTextField.text = "\(resetNbFrame)"
         adrSwitch.isOn = resetADR
-        
     }
     
     // MARK: - UITextField Delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nbFramesTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     
@@ -289,15 +404,25 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if (pickerView == deveuiPickerView) {
+            return 3
+        }
         return 6
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if (pickerView == deveuiPickerView) {
+            return deveuiValues[row]
+        }
         return sfValues[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        sfTextField.text = "\(sfValues[row])"
+        if (pickerView == deveuiPickerView) {
+            deveuiTextField.text = "\(deveuiValues[row])"
+        }else {
+            sfTextField.text = "\(sfValues[row])"
+        }
     }
     
     // MARK: - Keyboard Management
@@ -333,9 +458,29 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     
     deinit {
         
+        NotificationCenter.default.removeObserver(self, name: .BLEDeviceConnected, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEDeviceFailedToConnect, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .BLEDeviceDisconnected, object: nil)
+        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         
+    }
+    
+    @objc func deviceConnected(notification: NSNotification) {
+        MBProgressHUD.hide(for: self.view, animated: true)
+        deveui = deveuiTextField.text ?? ""
+    }
+    
+    @objc func deviceFailedToConnect(notification: NSNotification) {
+        
+    }
+    
+    @objc func deviceDisconnected(notification: NSNotification) {
+        if (updateDeveuiInProgress) {
+            updateDeveuiInProgress = false
+            NetwOBLE.shared.reconnectLastDevice()
+        }
     }
     
 }
