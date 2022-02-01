@@ -57,11 +57,10 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         self.view.addSubview(resultsTitleLabel)
         
         // Pull to refresh
-        /*
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         refreshControl.tintColor = UIColor(red:1, green:1, blue:1, alpha:1.0)
-        */
+        
         // results tableview
         resultsTableView = UITableView(frame: CGRect(x: 0.0, y: navigationBarHeight + 40.0, width: self.view.frame.size.width, height: self.view.frame.size.height - navigationBarHeight - 40.0), style: .plain)
         resultsTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -71,13 +70,10 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         resultsTableView.backgroundColor = .clear
         resultsTableView.separatorStyle = .singleLine
         resultsTableView.separatorColor = ColorTextGreyLight50
-        //resultsTableView.refreshControl = refreshControl
+        resultsTableView.refreshControl = refreshControl
         self.view.addSubview(resultsTableView)
         
         resultsTableView.tableFooterView = UIView(frame: CGRect.zero)
-        
-        
-        
     }
 
     deinit {
@@ -137,12 +133,13 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     // MARK: - NavigationBar Delegate
     
     func scan(navigationBar: NavigationBar) {
-        /* Pull to refresh
+        
+        // Pull to refresh
         let offsetPoint = CGPoint.init(x: 0, y: resultsTableView.contentOffset.y - (refreshControl.frame.size.height))
         resultsTableView.setContentOffset(offsetPoint, animated: false)
         refreshControl.beginRefreshing()
         refreshControl.sendActions(for: .valueChanged)
-         */
+         
         self.reloadData()
     }
     
