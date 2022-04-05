@@ -131,6 +131,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         startTestRadioButton.titleLabel?.font = UIFont.systemFont(ofSize: 12.0)
         startTestRadioButton.setTitleColor(.white, for: .normal)
         startTestRadioButton.setTitle(NSLocalizedString("receive", comment: ""), for: .normal)
+        startTestRadioButton.alpha = 0.5
+        startTestRadioButton.isEnabled = false
         self.view.addSubview(startTestRadioButton)
         
         // gateway label
@@ -436,6 +438,9 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                 }else if line.contains("DEVEUI") {
                     let deveuiIndex = line.index(line.startIndex, offsetBy: 7)
                     deveui = String(line.suffix(from: deveuiIndex))
+                    
+                    startTestRadioButton.alpha = 1
+                    startTestRadioButton.isEnabled = true
                 }
             }
 
