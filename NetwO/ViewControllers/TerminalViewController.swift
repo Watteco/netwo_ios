@@ -481,8 +481,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                     
             }
                         
-        } else if lines.count >= 12 && lines[1].contains("RESULT") {
-            
+        } else if lines[1].contains("RESULT") {
+            print("Average")
             allGatewayAvg.append(Int(lines[4].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)) ?? 0)
             allMarginAvg.append(Int(lines[5].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)) ?? 0)
             allSNRAvg.append(Int(lines[6].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)) ?? 0)
@@ -595,10 +595,18 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
             
             if isAverage {
                 
-                gatewayLabel.text = "\(NSLocalizedString("averageGateway", comment: ""))\(lastGateway ?? 0)"
-                receptionSNRLabel.text = "\(NSLocalizedString("average", comment: "")) SNR\n\(lastSNR ?? 0) dB"
-                emissionMarginLabel.text = "\(NSLocalizedString("average", comment: "")) Margin\n\(lastMargin ?? 0) dB"
-                receptionRSSILabel.text = "\(NSLocalizedString("average", comment: "")) RSSI\n\(lastRSSI ?? 0) dBm"
+                if let lastGatewayAvg : Int? = allGatewayAvg.last,
+                   let lastSNRAvg : Int?  = allSNRAvg.last,
+                   let lastMarginAvg : Int?  = allMarginAvg.last,
+                   let lastRSSIAvg : Int?  = allRSSIAvg.last {
+                    
+                    gatewayLabel.text = "\(NSLocalizedString("averageGateway", comment: ""))\(String(describing: lastGatewayAvg ?? 0))"
+                    receptionSNRLabel.text = "\(NSLocalizedString("average", comment: "")) SNR\n\(String(describing: lastSNRAvg ?? 0)) dB"
+                    emissionMarginLabel.text = "\(NSLocalizedString("average", comment: "")) Margin\n\(String(describing: lastMarginAvg ?? 0)) dB"
+                    receptionRSSILabel.text = "\(NSLocalizedString("average", comment: "")) RSSI\n\(String(describing: lastRSSIAvg ?? 0)) dBm"
+                }
+                
+               
                 
             } else {
                 
