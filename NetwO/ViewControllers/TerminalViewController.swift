@@ -52,7 +52,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     var allDelay = [Int]()
     var allOperator = [Int]()
     var allBatteryVoltage = [Float]()
-    var allOperatorName = [Int: String]()
+    var allOperatorName = [Int: String?]()
     var appeui = String()
     var deveui = String()
     
@@ -524,7 +524,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         temp["SFRX"] = allSFRX.last
         temp["Delay"] = allDelay.last
         temp["OperatorIndex"] = allOperator.last
-        temp["OperatorName"] = allOperatorName[allOperator.last ?? -1]?.uppercased()
+        temp["OperatorName"] = allOperatorName[allOperator.last ?? -1] ?? "Unknown"
         
         reportDatas.append(temp)
         
@@ -591,7 +591,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
            let lastWindow = allWindows.last,
            let lastDelay = allDelay.last,
            let lastOperator = allOperator.last,
-           let lastOperatorName = allOperatorName[lastOperator]?.uppercased() {
+           let lastOperatorName = allOperatorName[lastOperator] ?? "" {
             
             if isAverage {
                 
