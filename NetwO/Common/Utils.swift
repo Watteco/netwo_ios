@@ -24,16 +24,16 @@ class Utils: NSObject {
             alert.margin = 10.0
             alert.offset = CGPoint(x: 0.0, y: 150.0)
             alert.removeFromSuperViewOnHide = true
+            alert.isUserInteractionEnabled = false
+            alert.hide(animated: true, afterDelay: 2)
             
-            alert.hide(animated: true, afterDelay: 3)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 isAlertShowing = false
             }
             
         } else {
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 showAlert(view: view, message: message)
             }
             
