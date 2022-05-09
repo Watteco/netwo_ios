@@ -414,7 +414,6 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     func parseData(value: String) {
                 
         let lines = value.components(separatedBy: "\n")
-        print("TODO: lines count : \(lines.count)")
         
         if lines.count < 11 {
             
@@ -441,6 +440,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                     
                     startTestRadioButton.alpha = 1
                     startTestRadioButton.isEnabled = true
+                    
+                    changeTitle(title: deveui)
                 }
             }
 
@@ -925,6 +926,10 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         }))
         confirmAlert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(confirmAlert, animated: true, completion: nil)
+    }
+    
+    func changeTitle(title : String) {
+        navigationBar?.setTitle(title: "WTC-\(String(title.suffix(8)))")
     }
     
     func simple(navigationBar: NavigationBar) {
