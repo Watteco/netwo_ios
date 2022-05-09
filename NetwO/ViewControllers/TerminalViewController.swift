@@ -62,6 +62,11 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     var paramNumber = 0
     var paramADR = 0
     
+    var lastSend = String()
+    var isWaitingX = false
+    
+    var lastNotification = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -991,6 +996,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         
         let value = "S\(paramNumber),\(paramSF),\(paramADR)"
         send(value: value)
+        
+        lastSend = "S"
                 
     }
     
@@ -1001,6 +1008,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
             return
         }
         NetwOBLE.shared.updateDeveuiIndex(index: "\(index)")
+        
+        lastSend = "M"
     }
     
     // MARK: - MenuViewController Delegate
@@ -1102,28 +1111,61 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         if notification.object != nil,
             let datasString = notification.object as? String {
             
-            print("TODO: collect datas : \(datasString)")
-            
-            datas.append(datasString)
-            
-            // debug
-            let mutableAttributedString = NSMutableAttributedString.init(string: datasString)
-            mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSMakeRange(0, datasString.count))
-            debugView.appendValue(attributedString: mutableAttributedString)
-            
-            if datasString.contains("NOK") {
-                Utils.showAlert(view: self.view, message: "Not ok")
-                send(value: "X")
+            if(datasString != lastNotification){
+                print("collect datas : <\(datasString) >")
                 
-                let value = "S\(paramNumber),\(paramSF),\(paramADR)"
-                send(value: value)
+                datas.append(datasString)
                 
-            } else if datasString.contains("OK") {
-                Utils.showAlert(view: self.view, message: "Ok")
-            } else {
-                parseData(value: datasString)
+                // debug
+                let mutableAttributedString = NSMutableAttributedString.init(string: datasString)
+                mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: NSMakeRange(0, datasString.count))
+                debugView.appendValue(attributedString: mutableAttributedString)
+                
+                if datasString.contains("NOK") {
+                    switch lastSend {
+                        case "S":
+                            if(!isWaitingX){
+                                Utils.showAlert(view: self.view, message: "Waiting")
+                                send(value: "X")
+                                
+                                isWaitingX = true
+                                lastSend = "X"
+                            } else {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [self] in
+                                    let value = "S\(paramNumber),\(paramSF),\(self.paramADR)"
+                                    self.send(value: value)
+                                    self.lastSend = "S"
+                                 }
+                            }
+                            break
+                        case "X":
+                            Utils.showAlert(view: self.view, message: "Not ok")
+                            send(value: "X")
+                            
+                            isWaitingX = true
+                            lastSend = "X"
+                            break
+                        default:
+                            Utils.showAlert(view: self.view, message: "Not ok")
+                    }
+                } else if datasString.contains("OK") {
+                    if(lastSend == "S"){
+                        isWaitingX = false
+                    }
+                    if(isWaitingX) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [self] in
+                            let value = "S\(paramNumber),\(paramSF),\(self.paramADR)"
+                            self.send(value: value)
+                            self.lastSend = "S"
+                         }
+                    }else{
+                        Utils.showAlert(view: self.view, message: "Ok")
+                    }
+                    } else {
+                        parseData(value: datasString)
+                    }
             }
-            
+            lastNotification = datasString
         }
         
     }
