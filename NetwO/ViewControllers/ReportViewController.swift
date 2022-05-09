@@ -57,7 +57,7 @@ class ReportViewController: UIViewController, UITextFieldDelegate {
         filenameLabel.numberOfLines = 0
         filenameLabel.textAlignment = .center
         filenameLabel.font = UIFont.systemFont(ofSize: 16.0)
-        filenameLabel.textColor = ColorTextGreyLight
+        filenameLabel.textColor = ColorTextBlack
         filenameLabel.text = NSLocalizedString("exportFilename", comment: "")
         contentView.addSubview(filenameLabel)
         yPosition += filenameLabel.frame.size.height + 10.0
