@@ -66,6 +66,7 @@ class ReportViewController: UIViewController, UITextFieldDelegate {
         filenameTextField.delegate = self
         filenameTextField.text = filename
         filenameTextField.backgroundColor = UIColor.white
+        filenameTextField.textColor = .black
         contentView.addSubview(filenameTextField);
         
         yPosition += filenameTextField.frame.size.height + 20.0
