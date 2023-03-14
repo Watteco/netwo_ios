@@ -9,7 +9,7 @@ import UIKit
 import MBProgressHUD
 
 @objc protocol SendViewControllerDelegate {
-    @objc optional func sendValues(sendViewController: SendViewController, list: [Int])
+    @objc optional func sendValues(sendViewController: SendViewController, list: [String])
     @objc optional func updateDeveuiIndex(sendViewController: SendViewController, index: String)
 }
 
@@ -19,6 +19,7 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     let resetSF = 12
     let resetNbFrame = 5
     let resetADR = false
+    let resetCmt = ""
     var yContent: CGFloat = 0.0
     
     let backgroundButton = UIButton()
@@ -27,6 +28,7 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     let sfPickerView = UIPickerView()
     let nbFramesTextField = UITextField()
     let adrSwitch = UISwitch()
+    let cmtTextField = UITextField()
     
     var deveuiValues = [String]()
     let deveuiTextField = UITextField()
@@ -232,6 +234,37 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
             yPosition += deveuiLabel.frame.size.height + 20.0
         }
         
+        // comment label
+        let cmtTitleLabel = UILabel(frame: CGRect(x: 0.0, y: yPosition, width: contentView.frame.size.width / 2.0, height: 40.0))
+        cmtTitleLabel.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth]
+        cmtTitleLabel.textAlignment = .right
+        cmtTitleLabel.textColor = ColorTextGreyLight
+        cmtTitleLabel.font = UIFont.systemFont(ofSize: 16.0)
+        cmtTitleLabel.text = "Commentaire (opt.)"
+        contentView.addSubview(cmtTitleLabel)
+        
+        // comment textfield
+        cmtTextField.frame = CGRect(x: contentView.frame.size.width / 2.0, y: yPosition, width: contentView.frame.size.width / 2.0, height: 40.0)
+        cmtTextField.autoresizingMask = [.flexibleLeftMargin, .flexibleWidth]
+        cmtTextField.delegate = self
+        cmtTextField.backgroundColor = .clear
+        cmtTextField.returnKeyType = .done
+        cmtTextField.keyboardType = .asciiCapable
+        cmtTextField.font = UIFont.systemFont(ofSize: 16.0)
+        cmtTextField.textAlignment = .center
+        cmtTextField.textColor = .white
+        cmtTextField.text = ""
+        contentView.addSubview(cmtTextField)
+        
+        let cmtBottomLine = CALayer()
+        cmtBottomLine.frame = CGRect(x: 15.0, y: cmtTextField.frame.height - 1, width: cmtTextField.frame.size.width - 30.0, height: 1.0)
+        cmtBottomLine.backgroundColor = UIColor.white.cgColor
+        cmtBottomLine.backgroundColor = UIColor(white: 1.0, alpha: 0.5).cgColor
+        cmtTextField.borderStyle = .none
+        cmtTextField.layer.addSublayer(cmtBottomLine)
+        
+        yPosition += cmtTitleLabel.frame.size.height + 20.0
+        
         // send button
         let sendButton = UIButton(frame: CGRect(x: 20.0, y: yPosition, width: contentView.frame.size.width - 40.0, height: 40.0))
         sendButton.autoresizingMask = .flexibleWidth
@@ -344,27 +377,27 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     @objc func doneAction() {
         sfTextField.resignFirstResponder()
         nbFramesTextField.resignFirstResponder()
+        cmtTextField.resignFirstResponder()
     }
     
     @objc func sendAction() {
         
-        var sfValue = resetSF
-        if let value = Int(sfTextField.text ?? "0") {
-            sfValue = value
-        }
-        
+        var sfValue = sfTextField.text ?? "0"
+        var cmtValue = cmtTextField.text ?? ""
         var nbFrames = resetNbFrame
+        
         if let value = Int(nbFramesTextField.text ?? "0") {
             nbFrames = value
         }
         if nbFrames >= 1 && nbFrames < 100 {
             
-            let adrValue = adrSwitch.isOn ? 1 : 0
+            let adrValue = adrSwitch.isOn ? "1" : "0"
             
-            var list = [Int]()
+            var list = [String]()
             list.append(sfValue)
-            list.append(nbFrames)
+            list.append(String(nbFrames))
             list.append(adrValue)
+            list.append(cmtValue)
             
             let defaults = UserDefaults.standard
             defaults.set(sfValue, forKey: DefaultsKeys.sfNumber)
@@ -388,6 +421,7 @@ class SendViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         sfTextField.text = "\(resetSF)"
         nbFramesTextField.text = "\(resetNbFrame)"
         adrSwitch.isOn = resetADR
+        cmtTextField.text = resetCmt
     }
     
     // MARK: - UITextField Delegate

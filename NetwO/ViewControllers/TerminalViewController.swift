@@ -61,6 +61,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     var paramSF = 0
     var paramNumber = 0
     var paramADR = 0
+    var paramCmt = ""
     
     var lastSend = String()
     var isWaitingX = false
@@ -530,6 +531,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         temp["Delay"] = allDelay.last
         temp["OperatorIndex"] = allOperator.last
         temp["OperatorName"] = allOperatorName[allOperator.last ?? -1] ?? "Unknown"
+        temp["Comment"] = paramCmt
         
         reportDatas.append(temp)
         
@@ -984,17 +986,18 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     
     // MARK: - SendViewController Delegate
     
-    @objc func sendValues(sendViewController: SendViewController, list: [Int]) {
+    @objc func sendValues(sendViewController: SendViewController, list: [String]) {
         
-        if list.count != 3 {
+        if list.count != 4 {
             return
         }
         
-        paramSF = list[0]
-        paramNumber = list[1]
-        paramADR = list[2]
+        paramSF = Int(list[0]) ?? 0
+        paramNumber = Int(list[1]) ?? 0
+        paramADR = Int(list[2]) ?? 0
+        paramCmt = list[3]
         
-        let value = "S\(paramNumber),\(paramSF),\(paramADR)"
+        let value = "S\(paramNumber),\(paramSF),\(paramADR),\(paramCmt)"
         send(value: value)
         
         lastSend = "S"
@@ -1132,7 +1135,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                                 lastSend = "X"
                             } else {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [self] in
-                                    let value = "S\(paramNumber),\(paramSF),\(self.paramADR)"
+                                    let value = "S\(paramNumber),\(paramSF),\(self.paramADR),\(paramCmt)"
                                     self.send(value: value)
                                     self.lastSend = "S"
                                  }
@@ -1154,7 +1157,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
                     }
                     if(isWaitingX) {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [self] in
-                            let value = "S\(paramNumber),\(paramSF),\(self.paramADR)"
+                            let value = "S\(paramNumber),\(paramSF),\(self.paramADR),\(paramCmt)"
                             self.send(value: value)
                             self.lastSend = "S"
                          }
