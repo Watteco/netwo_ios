@@ -40,6 +40,8 @@ class CSVHelper: NSObject {
         csvString += "OperatorIndex"
         csvString += CSVSeparator
         csvString += "OperatorName"
+        csvString += CSVSeparator
+        csvString += "Comment"
         csvString += CSVNewLine
         
         // datas
@@ -70,6 +72,8 @@ class CSVHelper: NSObject {
             csvString += "\(reportData["OperatorIndex"] as? Int ?? 0)"
             csvString += CSVSeparator
             csvString += "\(reportData["OperatorName"] as? String ?? "")"
+            csvString += CSVSeparator
+            csvString += "\(reportData["Comment"] as? String ?? "")"
             csvString += CSVNewLine
                                             
         }
