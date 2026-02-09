@@ -41,7 +41,7 @@ class GraphRxView: UIView {
         snrGraph.frame = CGRect(x: 0.0, y: 0.0, width: graphsView.frame.size.width, height: graphsView.frame.size.height / 3.0 + 1.0)
         snrGraph.autoresizingMask = [.flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
         snrGraph.backgroundColor = ColorGrey
-        snrGraph.scrollEnabled = false
+        //snrGraph.scrollEnabled = false
         snrGraph.isHidden = true
         graphsView.addSubview(snrGraph)
         
@@ -58,7 +58,7 @@ class GraphRxView: UIView {
         rssiGraph.frame = CGRect(x: 0.0, y: graphsView.frame.size.height / 3.0, width: graphsView.frame.size.width, height: graphsView.frame.size.height / 3.0 + 1.0)
         rssiGraph.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
         rssiGraph.backgroundColor = ColorGrey
-        rssiGraph.scrollEnabled = false
+        //rssiGraph.scrollEnabled = false
         rssiGraph.isHidden = true
         graphsView.addSubview(rssiGraph)
         
@@ -75,7 +75,7 @@ class GraphRxView: UIView {
         sfrxGraph.frame = CGRect(x: 0.0, y: (graphsView.frame.size.height / 3.0) * 2.0, width: graphsView.frame.size.width, height: graphsView.frame.size.height / 3.0 + 1.0)
         sfrxGraph.autoresizingMask = [.flexibleTopMargin, .flexibleWidth, .flexibleHeight]
         sfrxGraph.backgroundColor = ColorGrey
-        sfrxGraph.scrollEnabled = false
+        //sfrxGraph.scrollEnabled = false
         sfrxGraph.isHidden = true
         graphsView.addSubview(sfrxGraph)
         

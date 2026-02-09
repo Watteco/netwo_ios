@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141395F62F36B26B003D156C /* BLESimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141395F52F36B26B003D156C /* BLESimulation.swift */; };
 		7C919D7C41C07800A67EA5CE /* Pods_NetwO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B753E56E51A407B20645A8CF /* Pods_NetwO.framework */; };
 		B549D0B6264A801B00B2AFB1 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B549D0B5264A801B00B2AFB1 /* ConfigurationViewController.swift */; };
 		B549D0BA264AB00B00B2AFB1 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B549D0B9264AB00B00B2AFB1 /* ReportViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141395F52F36B26B003D156C /* BLESimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESimulation.swift; sourceTree = "<group>"; };
 		B53231FC265CFA2700525221 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B549D0B5264A801B00B2AFB1 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		B549D0B9264AB00B00B2AFB1 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				B549D0B5264A801B00B2AFB1 /* ConfigurationViewController.swift */,
 				B549D0B9264AB00B00B2AFB1 /* ReportViewController.swift */,
 				B5A84AA8265E3E1F00ED7BF4 /* InfoViewController.swift */,
+				141395F52F36B26B003D156C /* BLESimulation.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,9 +304,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NetwO/Pods-NetwO-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NetwO/Pods-NetwO-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -362,6 +369,7 @@
 				B5C04F3826483D5C00FFB1FB /* SendViewController.swift in Sources */,
 				B58B4B68264BC63D005F66D9 /* Formatters.swift in Sources */,
 				B5A84AA9265E3E1F00ED7BF4 /* InfoViewController.swift in Sources */,
+				141395F62F36B26B003D156C /* BLESimulation.swift in Sources */,
 				B5C04F34264814FD00FFB1FB /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,11 +458,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -506,10 +513,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -527,6 +534,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97WG8B5J4A;
 				INFOPLIST_FILE = NetwO/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,6 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = watteco.netwo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -551,6 +560,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97WG8B5J4A;
 				INFOPLIST_FILE = NetwO/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,6 +569,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = watteco.netwo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

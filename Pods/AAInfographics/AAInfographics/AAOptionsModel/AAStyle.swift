@@ -77,8 +77,8 @@ public class AAStyle: AAObject {
 
     @discardableResult
     public func borderRadius(_ prop: Float?) -> AAStyle {
-        if prop != nil {
-            borderRadius = "\(prop!)px"
+        if let validProp = prop {
+            borderRadius = "\(validProp)px"
         }
         return self
     }
@@ -103,8 +103,8 @@ public class AAStyle: AAObject {
 
     @discardableResult
     public func fontSize(_ prop: Float?) -> AAStyle {
-        if prop != nil {
-            fontSize = "\(prop!)px"
+        if let validProp = prop {
+            fontSize = "\(validProp)px"
         }
         return self
     }
@@ -135,8 +135,8 @@ public class AAStyle: AAObject {
 
     @discardableResult
     public func padding(_ prop: Float?) -> AAStyle {
-        if prop != nil {
-            padding = "\(prop!)px"
+        if let validProp = prop {
+            padding = "\(validProp)px"
         }
         return self
     }
@@ -206,24 +206,3 @@ public class AAStyle: AAObject {
     }
 }
 
-public extension AAStyle {
-    convenience init(color : String?) {
-        self.init(color: color, fontSize: nil)
-    }
-    
-    convenience init(color : String?, fontSize: Float?) {
-        self.init(color: color, fontSize: fontSize,weight: nil)
-    }
-    
-    convenience init(color : String?, fontSize: Float?, weight: AAChartFontWeightType?) {
-      self.init(color: color, fontSize: fontSize,weight: weight, outline: nil)
-    }
-    
-    convenience init(color : String?, fontSize: Float?, weight: AAChartFontWeightType?, outline: String?) {
-        self.init()
-        self.color(color)
-        .fontSize(fontSize)
-        .fontWeight(weight)
-        .textOutline(outline)
-    }
-}

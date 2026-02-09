@@ -41,7 +41,7 @@ class GraphTxView: UIView {
         marginGraph.frame = CGRect(x: 0.0, y: 0.0, width: graphsView.frame.size.width, height: graphsView.frame.size.height / 3.0 + 1.0)
         marginGraph.autoresizingMask = [.flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
         marginGraph.backgroundColor = ColorGrey
-        marginGraph.scrollEnabled = false
+        //marginGraph.scrollEnabled = false
         marginGraph.isHidden = true
         graphsView.addSubview(marginGraph)
         
@@ -58,7 +58,7 @@ class GraphTxView: UIView {
         sftxGraph.frame = CGRect(x: 0.0, y: graphsView.frame.size.height / 3.0, width: graphsView.frame.size.width, height: graphsView.frame.size.height / 3.0 + 1.0)
         sftxGraph.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth, .flexibleHeight]
         sftxGraph.backgroundColor = ColorGrey
-        sftxGraph.scrollEnabled = false
+        //sftxGraph.scrollEnabled = false
         sftxGraph.isHidden = true
         graphsView.addSubview(sftxGraph)
         
@@ -75,7 +75,7 @@ class GraphTxView: UIView {
         nbGatewaysGraph.frame = CGRect(x: 0.0, y: (graphsView.frame.size.height / 3.0) * 2.0, width: graphsView.frame.size.width, height: graphsView.frame.size.height / 3.0 + 1.0)
         nbGatewaysGraph.autoresizingMask = [.flexibleTopMargin, .flexibleWidth, .flexibleHeight]
         nbGatewaysGraph.backgroundColor = ColorGrey
-        nbGatewaysGraph.scrollEnabled = false
+        //nbGatewaysGraph.scrollEnabled = false
         nbGatewaysGraph.isHidden = true
         graphsView.addSubview(nbGatewaysGraph)
         

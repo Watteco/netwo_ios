@@ -30,15 +30,15 @@
  
  */
 
-import Foundation
 
+/// https://api.highcharts.com/highcharts/pane
 public class AAPane: AAObject {
     public var background: [AABackgroundElement]?
     public var center: [String]?
     public var endAngle: Float?
+    public var innerSize: Any?
     public var size: Any?
     public var startAngle: Float?
-    
     
     @discardableResult
     public func background(_ prop: [AABackgroundElement]) -> AAPane {
@@ -59,6 +59,12 @@ public class AAPane: AAObject {
     }
     
     @discardableResult
+    public func innerSize(_ prop: Any) -> AAPane {
+        innerSize = prop
+        return self
+    }
+    
+    @discardableResult
     public func size(_ prop: Any) -> AAPane {
         size = prop
         return self
@@ -75,13 +81,14 @@ public class AAPane: AAObject {
     }
 }
 
+
 public class AABackgroundElement: AAObject {
-    public var backgroundColor: Any? //背景颜色
-    public var borderColor: String? //边框颜色
-    public var borderWidth: Float? //边框宽度
-    public var className: String?//类名
-    public var innerRadius: Any?//内半径
-    public var outerRadius: Any?//外半径
+    public var backgroundColor: Any?
+    public var borderColor: String?
+    public var borderWidth: Float?
+    public var className: String?
+    public var innerRadius: Any?
+    public var outerRadius: Any?
     public var shape: String?
     
     @discardableResult
