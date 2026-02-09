@@ -1,0 +1,83 @@
+############################################
+# macOS
+############################################
+.DS_Store
+.AppleDouble
+.LSOverride
+
+############################################
+# Xcode - Build outputs
+############################################
+DerivedData/
+build/
+*.xcarchive
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.xcresult
+
+############################################
+# Xcode - User specific (NE JAMAIS VERSIONNER)
+############################################
+**/xcuserdata/
+**/*.xcuserstate
+**/*.xcbkptlist
+**/*.xcsettings
+**/*.xccheckout
+**/*.xcscmblueprint
+
+############################################
+# Xcode - Logs / temporary
+############################################
+*.log
+*.tmp
+*.swp
+
+############################################
+# Swift Package Manager
+############################################
+.build/
+# Recommandé: commit Package.resolved (donc on ne l'ignore pas)
+
+############################################
+# Carthage
+############################################
+Carthage/Build/
+
+############################################
+# CocoaPods
+############################################
+# IMPORTANT : vous gardez Pods dans le repo, donc on N'ignore PAS Pods/
+# Pods/
+
+############################################
+# Fastlane
+############################################
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+############################################
+# IDEs
+############################################
+.idea/
+.vscode/
+
+############################################
+# Secrets / certificats (NE JAMAIS VERSIONNER)
+############################################
+.env
+.env.*
+*.p12
+*.cer
+*.pem
+*.key
+*.mobileprovision
+
+############################################
+# Divers
+############################################
+*.bak
+Thumbs.db
+
