@@ -233,9 +233,12 @@ class GraphRxView: UIView {
         
         let chartOptions = chartModel.aa_toAAOptions()
 
-        chartOptions.legend!
-            .itemStyle(AAItemStyle()
-                .color(AAColor.white))
+        chartOptions.legend?
+            .itemStyle(AAStyle()
+                .color("#ffffff"))
+
+        chartOptions.xAxis?.lineColor = "#ffffff"
+        chartOptions.xAxis?.lineWidth = 0.5
         
         chartView.aa_drawChartWithChartOptions(chartOptions)
         
