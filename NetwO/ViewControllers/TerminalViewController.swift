@@ -34,6 +34,8 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     var debugView = DebugView()
     
     var device: CBPeripheral?
+    // Simulator-only: permet d'afficher un nom sans CBPeripheral
+    var deviceNameOverride: String?
     var datas = [String]()
     var reportDatas = [[String: Any?]]()
     var allTX = [String]()
@@ -214,6 +216,15 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         NotificationCenter.default.addObserver(self, selector: #selector(deviceFailedToConnect), name: .BLEDeviceFailedToConnect, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deviceDisconnected), name: .BLEDeviceDisconnected, object: nil)
         
+        // --- SIMULATION (iOS Simulator) ---
+        if BLESimulation.enabled {
+            startTestRadioButton.alpha = 1.0
+            startTestRadioButton.isEnabled = true
+
+            BLESimulation.bootstrap(forDeviceName: deviceNameOverride)
+        }
+
+        
     }
     
     deinit {
@@ -229,7 +240,7 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
         super.viewWillAppear(animated)
         
         // navigation bar
-        navigationBar?.loadTerminalLayout(title: device?.name)
+        navigationBar?.loadTerminalLayout(title: deviceNameOverride ?? device?.name)
         
     }
     
@@ -396,7 +407,16 @@ class TerminalViewController: UIViewController, NavigationBarDelegate, SendViewC
     
     func send(value: String) {
         
-        if !NetwOBLE.shared.isConnected() {
+        
+
+        // Simulator: on génère des trames sans BLE réel
+        if BLESimulation.enabled {
+            if let total = BLESimulation.parseTotalFromSCommand(value) {
+                BLESimulation.startTest(total: total)
+            }
+            return
+        }
+if !NetwOBLE.shared.isConnected() {
             Utils.showAlert(view: self.view, message: NSLocalizedString("device_not_connected", comment: ""))
             return
         }

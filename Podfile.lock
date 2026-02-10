@@ -1,5 +1,5 @@
 PODS:
-  - AAInfographics (6.0.0)
+  - AAInfographics (9.5.0)
   - MBProgressHUD (1.2.0)
 
 DEPENDENCIES:
@@ -16,13 +16,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AAInfographics:
-    :commit: 5b229f45439219ff58eba8cac9604e67e1b7c221
+    :commit: d46f004fe26e09482e0b7a2706a4a93a7c42fc8d
     :git: https://github.com/AAChartModel/AAChartKit-Swift.git
 
 SPEC CHECKSUMS:
-  AAInfographics: e57c6cc15ddc17df3555db6f586fb0e1b911a0b7
+  AAInfographics: 406ade92e6f860a6d0485ef1301f43696e1aa062
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
 
-PODFILE CHECKSUM: ac70b169dd321daacadd3bd2ab326dceb0f464eb
+PODFILE CHECKSUM: f6ee05eb84fcd9f2f56b4e1fe6801aa607d5185a
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

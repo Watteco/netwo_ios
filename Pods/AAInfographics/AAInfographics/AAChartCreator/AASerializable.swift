@@ -30,12 +30,13 @@
  
  */
 
-
 import Foundation
 
-public class AAObject { }
+open class AAObject {
+    public init() {}
+}
 
-@available(iOS 9.0, macCatalyst 13.0, *)
+@available(iOS 10.0, macCatalyst 13.1, macOS 10.13, *)
 public extension AAObject {
     var classNameString: String {
         let nameClass: AnyClass! = object_getClass(self)
@@ -43,54 +44,75 @@ public extension AAObject {
     }
 }
 
-@available(iOS 9.0, macCatalyst 13.0, *)
+@available(iOS 10.0, macCatalyst 13.1, macOS 10.13, *)
+public protocol AASerializableWithComputedProperties {
+    /// 返回计算属性的键值对
+    func computedProperties() -> [String: Any]
+}
+
+@available(iOS 10.0, macCatalyst 13.1, macOS 10.13, *)
 public extension AAObject {
-    func toDic() -> [String: Any]? {
-        var representation = [String: Any]()
-        
-        let mirrorChildren = Mirror(reflecting: self).children
+    
+    private func loopForMirrorChildren(_ mirrorChildren: Mirror.Children, _ representation: inout [String: Any]) {
         for case let (label?, value) in mirrorChildren {
-            switch value {
-            case let value as AAObject: do {
+            if let value = value as? AAObject {
                 representation[label] = value.toDic()
-            }
-            
-            case let value as [AAObject]: do {
-                var aaObjectArr = [Any]()
-                
-                let valueCount = value.count
-                for i in 0 ..< valueCount {
-                    let aaObject = value[i]
-                    let aaObjectDic = aaObject.toDic()
-                    aaObjectArr.append(aaObjectDic as Any)
-                }
-                
-                representation[label] = aaObjectArr
-            }
-            
-            case let value as NSObject: do {
+            } else if let value = value as? [AAObject] {
+                // 使用 map 简化数组转换
+                representation[label] = value.map { $0.toDic() }
+            } else if let value = value as? NSObject {
                 representation[label] = value
             }
-            
-            default:
-                // Ignore any unserializable properties
-                break
-            }
         }
-        
-        return representation as [String: Any]?
     }
     
+    func toDic() -> [String: Any] {
+        // 创建 Mirror 对象
+        let mirror = Mirror(reflecting: self)
+        
+        // 预估容量
+        let estimatedCapacity = mirror.children.underestimatedCount +
+        (mirror.superclassMirror?.children.underestimatedCount ?? 0) + 5
+        var representation = [String: Any](minimumCapacity: estimatedCapacity)
+        
+        // 遍历当前类和父类的反射子属性
+        var currentMirror: Mirror? = mirror
+        while let current = currentMirror {
+            loopForMirrorChildren(current.children, &representation)
+            currentMirror = current.superclassMirror
+        }
+        
+        // 添加计算属性
+        addComputedProperties(to: &representation)
+        
+        return representation
+    }
     
-    func toJSON() -> String? {
+    private func addComputedProperties(to representation: inout [String: Any]) {
+        // 仅依赖协议
+        if let selfWithComputed = self as? AASerializableWithComputedProperties {
+            let computedProps = selfWithComputed.computedProperties()
+            // 仅在有计算属性时合并
+            if !computedProps.isEmpty {
+                for (key, value) in computedProps {
+                    representation[key] = value
+                }
+            }
+        }
+    }
+    
+    func toJSON() -> String {
         do {
-            let data = try JSONSerialization.data(withJSONObject: toDic() as Any, options: [])
-            let jsonStr = String(data: data, encoding: String.Encoding.utf8)
-            return jsonStr
-        } catch {
-            return nil
+            let data = try JSONSerialization.data(withJSONObject: toDic(), options: [.fragmentsAllowed])
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                print("JSON encoding error: Unable to convert data to String.")
+                return ""
+            }
+            return jsonString
+        } catch let error as NSError {
+            print("JSON serialization error: \(error.localizedDescription)")
+            return ""
         }
     }
     
 }
-

@@ -30,8 +30,10 @@
  
  */
 
-import Foundation
 
+/// https://api.highcharts.com/highcharts/plotOptions.series.states
+/// https://api.highcharts.com/highcharts/plotOptions.line.states
+/// https://api.highcharts.com/highcharts/series.line.states
 public class AAStates: AAObject {
     public var hover: AAHover?
     public var select: AASelect?
@@ -59,6 +61,7 @@ public class AAStates: AAObject {
         
     }
 }
+
 
 public class AAHover: AAObject {
     public var enabled: Bool?
@@ -116,6 +119,7 @@ public class AAHover: AAObject {
     }
 }
 
+
 public class AASelect: AAObject {
     public var enabled: Bool?
     public var borderColor: String?
@@ -152,14 +156,15 @@ public class AASelect: AAObject {
     }
 }
 
+
 public class AAHalo: AAObject {
     public var attributes: [String: Any]?
     public var opacity: Float?
     public var size: Float?
     
     @discardableResult
-    public func attributes(_ prop: [String: Any]) -> AAHalo {
-        attributes = prop
+    public func attributes(_ prop: AASVGAttributes) -> AAHalo {
+        attributes = prop.toDictionaryProp()
         return self
     }
     
@@ -180,6 +185,7 @@ public class AAHalo: AAObject {
     }
 }
 
+
 public class AAInactive: AAObject {
     public var enabled: Bool?
     public var opacity: Float?
@@ -194,6 +200,49 @@ public class AAInactive: AAObject {
     public func opacity(_ prop: Float) -> AAInactive {
         opacity = prop
         return self
+    }
+    
+    public override init() {
+        
+    }
+}
+
+/// https://api.highcharts.com/class-reference/Highcharts.SVGAttributes
+public class AASVGAttributes: AAObject {
+    public var fill: String?
+    public var stroke: String?
+    public var strokeWidth: Float?
+    
+    @discardableResult
+    public func fill(_ prop: String?) -> AASVGAttributes {
+        fill = prop
+        return self
+    }
+    
+    @discardableResult
+    public func stroke(_ prop: String?) -> AASVGAttributes {
+        stroke = prop
+        return self
+    }
+    
+    @discardableResult
+    public func strokeWidth(_ prop: Float?) -> AASVGAttributes {
+        strokeWidth = prop
+        return self
+    }
+    
+    public func toDictionaryProp() -> [String: Any]? {
+        var dic = [String: Any]()
+        if let fill = fill {
+            dic["fill"] = fill
+        }
+        if let stroke = stroke {
+            dic["stroke"] = stroke
+        }
+        if let strokeWidth = strokeWidth {
+            dic["stroke-width"] = strokeWidth
+        }
+        return dic
     }
     
     public override init() {

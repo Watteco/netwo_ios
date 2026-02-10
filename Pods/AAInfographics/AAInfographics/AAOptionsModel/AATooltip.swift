@@ -30,32 +30,51 @@
  
  */
 
-import Foundation 
 
+/// https://api.highcharts.com/highcharts/tooltip
 public class AATooltip: AAObject {
-    public var backgroundColor: String?
+    public var animation: Any?
+    public var backgroundColor: Any?
     public var borderColor: String?
     public var borderRadius: Float?
     public var borderWidth: Float?
     public var style: AAStyle?
     public var enabled: Bool?
     public var useHTML: Bool?
+    public var format: String?
     public var formatter: String?
     public var headerFormat: String?
     public var pointFormat: String?
     public var footerFormat: String?
     public var valueDecimals: Int?
     public var shared: Bool?
+    public var valuePrefix: String?
     public var valueSuffix: String?
-    public var followTouchMove: Bool?//https://api.highcharts.com.cn/highcharts#chart.panning
+    public var followPointer: Bool?
+    public var followTouchMove: Bool? //https://api.highcharts.com.cn/highcharts#chart.panning
     public var shadow: Bool?
     public var padding: Float?
     public var pointFormatter: String?
     public var positioner: String?
+    public var hideDelay: Int?
     public var dateTimeLabelFormats: AADateTimeLabelFormats?
+    public var split: Bool?
+    public var outside: Bool?
     
     @discardableResult
-    public func backgroundColor(_ prop: String?) -> AATooltip {
+    public func animation(_ prop: AAAnimation?) -> AATooltip {
+        animation = prop
+        return self
+    }
+    
+    @discardableResult
+    public func animation(_ prop: Bool?) -> AATooltip {
+        animation = prop
+        return self
+    }
+    
+    @discardableResult
+    public func backgroundColor(_ prop: Any?) -> AATooltip {
         backgroundColor = prop
         return self
     }
@@ -97,8 +116,14 @@ public class AATooltip: AAObject {
     }
     
     @discardableResult
-    public func formatter(_ prop: String) -> AATooltip {
-        formatter = prop.aa_toPureJSString()
+    public func format(_ prop: String?) -> AATooltip {
+        format = prop
+        return self
+    }
+    
+    @discardableResult
+    public func formatter(_ prop: String?) -> AATooltip {
+        formatter = prop?.aa_toPureJSString()
         return self
     }
     
@@ -131,6 +156,12 @@ public class AATooltip: AAObject {
         shared = prop
         return self
     }
+
+    @discardableResult
+    public func valuePrefix(_ prop: String?) -> AATooltip {
+        valuePrefix = prop
+        return self
+    }
     
     @discardableResult
     public func valueSuffix(_ prop: String?) -> AATooltip {
@@ -157,14 +188,20 @@ public class AATooltip: AAObject {
     }
     
     @discardableResult
-    public func pointFormatter(_ prop: String) -> AATooltip {
-        pointFormatter = prop.aa_toPureJSString()
+    public func pointFormatter(_ prop: String?) -> AATooltip {
+        pointFormatter = prop?.aa_toPureJSString()
         return self
     }
     
     @discardableResult
-    public func positioner(_ prop: String) -> AATooltip {
-        positioner = prop.aa_toPureJSString()
+    public func positioner(_ prop: String?) -> AATooltip {
+        positioner = prop?.aa_toPureJSString()
+        return self
+    }
+    
+    @discardableResult
+    public func hideDelay(_ prop: Int?) -> AATooltip {
+        hideDelay = prop
         return self
     }
     
@@ -173,7 +210,19 @@ public class AATooltip: AAObject {
         dateTimeLabelFormats = prop
         return self
     }
+
+    @discardableResult
+    public func split(_ prop: Bool?) -> AATooltip {
+        split = prop
+        return self
+    }
     
+    @discardableResult
+    public func outside(_ prop: Bool?) -> AATooltip {
+        outside = prop
+        return self
+    }
+
     public override init() {
         enabled = true
         shared = true

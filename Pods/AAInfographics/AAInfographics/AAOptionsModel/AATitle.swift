@@ -30,8 +30,8 @@
  
  */
 
-import Foundation
 
+/// https://api.highcharts.com/highcharts/title
 public class AATitle: AAObject {
     public var text: String?
     public var style: AAStyle?
@@ -40,6 +40,7 @@ public class AATitle: AAObject {
     public var x: Float?
     public var y: Float?
     public var userHTML: Bool?
+    public var floating: Bool?
     
     @discardableResult
     public func text(_ prop: String?) -> AATitle {
@@ -82,10 +83,15 @@ public class AATitle: AAObject {
         userHTML = prop
         return self
     }
+
+    @discardableResult
+    public func floating(_ prop: Bool?) -> AATitle {
+        floating = prop
+        return self
+    }
     
     public override init() {
         
     }
-    
 }
 

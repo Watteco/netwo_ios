@@ -17,6 +17,8 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     var resultsTableView = UITableView()
     var refreshControl = UIRefreshControl()
     var peripherals = [CBPeripheral]()
+    // Simulator-only: noms de périphériques simulés (car on ne peut pas instancier CBPeripheral)
+    var simNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +102,8 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         
         // scan button
         navigationBar?.loadHomeLayout()
-        navigationBar?.setScanButtonEnabled(enabled: NetwOBLE.shared.isBluetoothEnabled())
+        let bt = NetwOBLE.shared.isBluetoothEnabled()
+        navigationBar?.setScanButtonEnabled(enabled: BLESimulation.canScan(bluetoothEnabled: bt))
         
         NetwOBLE.shared.disconnect()
     }
@@ -120,7 +123,35 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         
         NetwOBLE.shared.disconnect()
         
-        // scan
+        // scan (simulator)
+        if BLESimulation.enabled {
+
+            navigationBar?.setScanButtonEnabled(enabled: false)
+            scanLabel.isHidden = false
+            scanLabel.text = NSLocalizedString("scanning", comment: "")
+            resultsTitleLabel.isHidden = true
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.simNames = BLESimulation.fakePeripheralNames()
+
+                if self.simNames.isEmpty {
+                    self.scanLabel.isHidden = false
+                    self.scanLabel.text = NSLocalizedString("scanNoResult", comment: "")
+                    self.resultsTitleLabel.isHidden = true
+                } else {
+                    self.scanLabel.isHidden = true
+                    self.resultsTitleLabel.isHidden = false
+                }
+
+                self.peripherals.removeAll()
+                self.resultsTableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.navigationBar?.setScanButtonEnabled(enabled: true)
+            }
+            return
+        }
+
+        // scan (réel)
         NetwOBLE.shared.scan()
 
         navigationBar?.setScanButtonEnabled(enabled: false)
@@ -188,7 +219,7 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return peripherals.count
+        return BLESimulation.enabled ? simNames.count : peripherals.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -217,7 +248,19 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let PeripheralItemCellIdentifier = "PeripheralItemCellIdentifier"
+        
+
+        if BLESimulation.enabled {
+            let id = "SimCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: id) ?? UITableViewCell(style: .subtitle, reuseIdentifier: id)
+            cell.backgroundColor = .clear
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = ColorTextGreyLight
+            cell.textLabel?.text = simNames[indexPath.row]
+            cell.detailTextLabel?.text = "Simulated BLE peripheral"
+            return cell
+        }
+let PeripheralItemCellIdentifier = "PeripheralItemCellIdentifier"
         
         var cell: DeviceTableViewCell? = tableView.dequeueReusableCell(withIdentifier: PeripheralItemCellIdentifier) as? DeviceTableViewCell
         
@@ -241,7 +284,21 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         // location permission
         _ = LocationHelper().location()
         
-        NetwOBLE.shared.connectPeripheral(peripheral: peripherals[indexPath.row])
+        
+
+        if BLESimulation.enabled {
+            let terminalViewController = TerminalViewController()
+            terminalViewController.device = nil
+            terminalViewController.deviceNameOverride = simNames[indexPath.row]
+            self.navigationController?.pushViewController(terminalViewController, animated: true)
+
+            BLESimulation.connect(to: indexPath.row)
+
+            MBProgressHUD.hide(for: self.view, animated: true)
+            return
+        }
+
+NetwOBLE.shared.connectPeripheral(peripheral: peripherals[indexPath.row])
         
     }
     
@@ -252,14 +309,15 @@ class MainViewController: UIViewController, NavigationBarDelegate, MenuViewContr
         if notification.object != nil,
             let bluetoothEnabled = notification.object as? Bool {
             
-            navigationBar?.setScanButtonEnabled(enabled: bluetoothEnabled)
+            navigationBar?.setScanButtonEnabled(enabled: BLESimulation.canScan(bluetoothEnabled: bluetoothEnabled))
             
         }
 
     }
         
     @objc func scanFinished() {
-        navigationBar?.setScanButtonEnabled(enabled: NetwOBLE.shared.isBluetoothEnabled())
+        let bt = NetwOBLE.shared.isBluetoothEnabled()
+        navigationBar?.setScanButtonEnabled(enabled: BLESimulation.canScan(bluetoothEnabled: bt))
         self.refreshControl.endRefreshing()
     }
     

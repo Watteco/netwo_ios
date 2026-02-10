@@ -30,8 +30,8 @@
  
  */
 
-import Foundation
 
+/// https://api.highcharts.com/highcharts/subtitle
 public class AASubtitle: AAObject {
     public var text: String?
     public var style: AAStyle?
@@ -39,7 +39,7 @@ public class AASubtitle: AAObject {
     public var verticalAlign: String?
     public var x: Float?
     public var y: Float?
-    public var userHTML: Bool?
+    public var useHTML: Bool?
     
     @discardableResult
     public func text(_ prop: String?) -> AASubtitle {
@@ -78,8 +78,8 @@ public class AASubtitle: AAObject {
     }
     
     @discardableResult
-    public func userHTML(_ prop: Bool?) -> AASubtitle {
-        userHTML = prop
+    public func useHTML(_ prop: Bool?) -> AASubtitle {
+        useHTML = prop
         return self
     }
     
